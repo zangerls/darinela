@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Pause, Play } from "lucide-react";
 import { useLenis } from "@/providers/lenis-provider";
@@ -197,13 +198,15 @@ function ExpandedPlayer({
 
                     <motion.div
                         layoutId={`image-${perf.id}`}
-                        className="mt-3 aspect-square w-full overflow-hidden rounded-sm"
+                        className="relative mt-3 aspect-square w-full overflow-hidden rounded-sm"
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                     >
-                        <img
+                        <Image
                             src={perf.image}
                             alt={perf.title}
-                            className="h-full w-full object-cover"
+                            fill
+                            sizes="(min-width: 768px) 672px, 60vw"
+                            className="object-cover"
                         />
                     </motion.div>
 
@@ -371,16 +374,18 @@ export function Performances() {
                             <motion.div
                                 key={activePerf.id}
                                 layoutId={`image-${activePerf.id}`}
-                                className="aspect-square w-42 overflow-hidden rounded-sm sm:w-56 md:w-72 lg:w-96"
+                                className="relative aspect-square w-42 overflow-hidden rounded-sm sm:w-56 md:w-72 lg:w-96"
                                 transition={{
                                     duration: 0.5,
                                     ease: [0.4, 0, 0.2, 1],
                                 }}
                             >
-                                <img
+                                <Image
                                     src={activePerf.image}
                                     alt={activePerf.title}
-                                    className="h-full w-full object-cover"
+                                    fill
+                                    sizes="(min-width: 1024px) 384px, (min-width: 768px) 288px, (min-width: 640px) 224px, 168px"
+                                    className="object-cover"
                                 />
                             </motion.div>
                         </div>

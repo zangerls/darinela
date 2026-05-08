@@ -20,8 +20,9 @@ export function About() {
                     <Image
                         src="/IMG_1968.webp"
                         alt="Portrait of Darinela Vangelova"
-                        width={1200}
-                        height={1600}
+                        width={960}
+                        height={1440}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
                         className="max-h-[80vh] w-full object-cover saturate-80"
                     />
                 </motion.div>

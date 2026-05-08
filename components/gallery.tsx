@@ -133,7 +133,11 @@ export function Gallery() {
                                         src={s.src || "/placeholder.svg"}
                                         alt={s.caption}
                                         fill
-                                        sizes="(max-width: 768px) 80vw, 50vw"
+                                        sizes={
+                                            s.tall
+                                                ? "(min-width: 1024px) 32vw, (min-width: 768px) 44vw, 62vw"
+                                                : "(min-width: 1024px) 46vw, (min-width: 768px) 58vw, 78vw"
+                                        }
                                         className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]"
                                     />
                                     <div className="pointer-events-none absolute inset-0 ring-1 ring-foreground/10 ring-inset" />
