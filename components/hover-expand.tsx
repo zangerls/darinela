@@ -103,10 +103,10 @@ export function HoverExpand({
                             </motion.div>
 
                             <div className="absolute inset-0 flex items-end px-5 pb-4">
-                                <div className="flex w-full items-end justify-between gap-4">
-                                    <div className="flex min-w-0 items-baseline gap-3">
+                                <div className="flex w-full items-center justify-between gap-4">
+                                    <div className="flex min-w-0 items-center gap-3">
                                         <motion.span
-                                            className="shrink-0 text-xs tabular-nums opacity-40"
+                                            className="shrink-0 font-mono text-xs tabular-nums opacity-40"
                                             animate={{
                                                 color: isHovered
                                                     ? "#ffffff"
@@ -136,7 +136,7 @@ export function HoverExpand({
 
                                         {item.description && (
                                             <motion.span
-                                                className="hidden truncate text-sm text-white/70 sm:block"
+                                                className="hidden truncate font-mono text-sm text-white/70 sm:block"
                                                 initial={{ opacity: 0, x: -8 }}
                                                 animate={{
                                                     opacity: isHovered ? 1 : 0,
@@ -155,7 +155,7 @@ export function HoverExpand({
 
                                     {item.sublabel && (
                                         <motion.span
-                                            className="shrink-0 text-xs tracking-widest uppercase"
+                                            className="shrink-0 font-mono text-xs tracking-widest uppercase"
                                             animate={{
                                                 color: isHovered
                                                     ? "rgba(255,255,255,0.55)"

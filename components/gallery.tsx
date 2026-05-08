@@ -141,8 +141,8 @@ export function Gallery() {
                                         className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]"
                                     />
                                     <div className="pointer-events-none absolute inset-0 ring-1 ring-foreground/10 ring-inset" />
-                                    <div className="tracking-wider-2 pointer-events-none absolute right-4 bottom-4 left-4 flex items-end justify-between text-[0.65rem] text-background uppercase mix-blend-difference">
-                                        <span className="font-mono">
+                                    <div className="tracking-wider-2 pointer-events-none absolute right-4 bottom-4 left-4 flex items-end justify-between font-mono text-[0.65rem] text-background uppercase mix-blend-difference">
+                                        <span>
                                             N°&nbsp;
                                             {String(i + 1).padStart(2, "0")}
                                         </span>
