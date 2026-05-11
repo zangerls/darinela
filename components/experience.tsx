@@ -114,17 +114,17 @@ export function Experience() {
                     </h2>
                 </div>
 
-                <div className="space-y-16">
+                <div className="group/list">
                     {experiences.map((exp, index) => (
                         <ExperienceItem
                             key={index}
                             href={exp.href}
                             index={index}
                         >
-                            <motion.div className="absolute top-0 -left-[9px] h-4 w-4 rounded-full border-2 border-primary/30 bg-background transition-all duration-300 group-hover:bg-primary" />
+                            <motion.div className="absolute top-0 -left-[9px] h-4 w-4 rounded-full border-2 border-primary/30 bg-background transition-all duration-300 group-hover/item:bg-primary" />
 
-                            <div className="grid gap-8 md:grid-cols-3">
-                                <div className="font-mono text-xs tracking-widest uppercase opacity-50 transition-opacity group-hover:opacity-100">
+                            <div className="grid gap-8 transition-opacity group-hover/item:opacity-100! group-hover/list:opacity-50 md:grid-cols-3 dark:group-hover/list:opacity-30">
+                                <div className="font-mono text-xs tracking-widest uppercase opacity-50 transition-opacity group-hover/item:opacity-100">
                                     {exp.year}
                                 </div>
 
@@ -132,7 +132,7 @@ export function Experience() {
                                     <h3 className="font-display mb-1 flex items-center gap-2 text-2xl font-bold uppercase md:text-3xl">
                                         {exp.role}
                                         {exp.href && (
-                                            <ArrowUpRight className="opacity-25 transition-opacity group-hover:opacity-100" />
+                                            <ArrowUpRight className="opacity-25 transition-opacity group-hover/item:opacity-100" />
                                         )}
                                     </h3>
                                     <p className="font-mono text-sm uppercase">
@@ -143,7 +143,7 @@ export function Experience() {
                                     </p>
                                 </div>
 
-                                <div className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                                <div className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover/item:text-foreground">
                                     {exp.details}
                                 </div>
                             </div>
