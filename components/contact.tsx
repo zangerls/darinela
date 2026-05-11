@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-const EMAIL = "email@email.com";
+const EMAIL = "vangelova@darinela.com";
 const INSTAGRAM_URL = "https://instagram.com/user";
 const YOUTUBE_URL = "https://youtube.com/@user";
 
@@ -15,7 +15,7 @@ export function Contact() {
             className="relative border-t border-border bg-background px-6 py-24 md:px-24 md:py-32"
         >
             <div className="mx-auto max-w-6xl">
-                <div className="mb-20 flex items-end justify-between border-b border-primary pb-4 md:mb-28">
+                <div className="mb-20 flex items-end justify-between pb-4 md:mb-20">
                     <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("heading")}
                     </h2>
