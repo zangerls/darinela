@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function About() {
+    const t = useTranslations("About");
+
     return (
         <section
             id="about"
@@ -37,9 +40,9 @@ export function About() {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-5xl xl:text-6xl">
-                        Lorem ipsum <br />
+                        {t("headline.line1")} <br />
                         <span className="font-light italic">
-                            dolor sit amet
+                            {t("headline.line2")}
                         </span>
                     </h2>
                 </motion.div>
@@ -50,31 +53,32 @@ export function About() {
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="space-y-6 text-justify font-mono text-sm leading-relaxed text-muted-foreground md:text-base"
                 >
+                    <p>{t("paragraphs.first")}</p>
                     <p>
-                        Pellentesque eget nisl maximus magna mattis varius eu ac
-                        sem. Morbi convallis dignissim tellus vel malesuada.
-                        Nunc blandit dui id purus egestas, ac tempus magna
-                        egestas. Pellentesque facilisis eget orci vel ultrices
-                    </p>
-                    <p>
-                        Donec aliquet dui lectus. Orci varius natoque penatibus
-                        et magnis dis parturient montes, nascetur ridiculus mus.
-                        Mauris pharetra mauris eget diam venenatis venenatis.
+                        {t.rich("paragraphs.second", {
+                            i: (chunks) => (
+                                <span className="italic">{chunks}</span>
+                            ),
+                        })}
                     </p>
                 </motion.div>
 
                 <div className="grid grid-cols-2 gap-8 pt-8 font-mono text-xs tracking-widest">
                     <div>
                         <h4 className="mb-2 border-b border-primary pb-1 uppercase">
-                            Title A
+                            {t("stats.voice.label")}
                         </h4>
-                        <p className="uppercase">Description A</p>
+                        <p className="text-muted-foreground uppercase">
+                            {t("stats.voice.value")}
+                        </p>
                     </div>
                     <div>
                         <h4 className="mb-2 border-b border-primary pb-1 uppercase">
-                            Title B
+                            {t("stats.studies.label")}
                         </h4>
-                        <p className="uppercase">Description B</p>
+                        <p className="text-muted-foreground uppercase">
+                            {t("stats.studies.value")}
+                        </p>
                     </div>
                 </div>
             </div>

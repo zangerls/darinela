@@ -8,11 +8,13 @@ import {
     useTransform,
 } from "motion/react";
 import { Play, Plus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import React, { useRef, useState } from "react";
 
 const YOUTUBE_ID = "i8q7OpLG_x4";
 
 export function MediaPlayer() {
+    const t = useTranslations("MediaPlayer");
     const playerRef = useRef<HTMLDivElement | null>(null);
     const [showPopOver, setShowPopOver] = useState<boolean>(false);
 
@@ -51,10 +53,10 @@ export function MediaPlayer() {
             >
                 <div className="mx-auto mb-8 max-w-2xl px-6 text-center">
                     <h2 className="mb-3 text-3xl font-semibold tracking-tight">
-                        Lorem Ipsum
+                        {t("title")}
                     </h2>
                     <p className="text-muted-foreground">
-                        A short description about the video.
+                        {t("description")}
                     </p>
                 </div>
                 <div className="flex w-full justify-center">

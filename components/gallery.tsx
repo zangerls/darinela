@@ -102,8 +102,12 @@ export function Gallery() {
             <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-8 md:px-10 md:pt-28">
                     <h2 className="font-display mt-6 max-w-3xl text-4xl font-semibold tracking-tighter md:text-6xl">
-                        Heading in black
-                        <span className="text-primary italic"> and red</span>.
+                        {t("headline.lead")}
+                        <span className="text-primary italic">
+                            {" "}
+                            {t("headline.accent")}
+                        </span>
+                        .
                     </h2>
                 </div>
 

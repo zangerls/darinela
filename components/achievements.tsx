@@ -67,16 +67,7 @@ export function Achievements() {
                             {t("heading")}
                         </h2>
                         <p className="mb-4 max-w-lg text-justify font-mono text-sm text-muted-foreground md:text-base">
-                            Donec velit felis, tempor ac libero et, dictum
-                            laoreet ante. Etiam pellentesque lorem eget ipsum
-                            vestibulum fermentum. Fusce ut cursus odio. Vivamus
-                            bibendum, erat quis hendrerit aliquam, arcu est
-                            vulputate diam, et viverra tortor nibh tempor augue.
-                            Nullam odio nibh, malesuada id iaculis eu, euismod
-                            non tellus. Vivamus sodales vel diam accumsan
-                            tempus. Donec malesuada massa quam. Aliquam
-                            vulputate, sem ac pretium tristique, ligula nisi
-                            molestie magna, eu efficitur felis ipsum quis justo.
+                            {t("description")}
                         </p>
 
                         <Link

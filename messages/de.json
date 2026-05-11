@@ -1,6 +1,27 @@
 {
+    "About": {
+        "headline": {
+            "line1": "Eine Stimme",
+            "line2": "aus Burgas"
+        },
+        "paragraphs": {
+            "first": "Darinela Vangelova ist eine bulgarische Sopranistin mit Wohnsitz in Wien. 2003 in Burgas geboren, begann sie ihre Ausbildung an der Nationalen Schule für Musik und darstellende Künste „Prof. Pancho Vladigerov\", wo sie Klavier bei Zlatina Panteleeva und Operngesang bei Bilyana Danailova studierte und 2022 ihren Abschluss machte. Derzeit absolviert sie das letzte Semester ihres Bachelorstudiums an der Universität für Musik und darstellende Kunst Wien (mdw).",
+            "second": "Ihre künstlerische Entwicklung wurde durch Meisterklassen bei Krassimira Stoyanova, Stefka Evstatieva, Valentin Peychinov, Voislav Spasich und weiteren renommierten Lehrenden geprägt. Im Januar 2025 sang sie die Rolle der Ilia in Mozarts <i>Idomeneo</i>, und erhielt im selben Jahr ein Stipendium der Raina-Kabaivanska-Stiftung für das Studienjahr 2025/26 am Istituto Vecchi-Tonelli. Neben ihrem Studium tritt sie als Solistin bei Yehudi Menuhins Live Music Now in Wien auf und gibt einstündige Konzerte in Pflegeheimen, Krankenhäusern und für Menschen, die nur selten Gelegenheit haben, Live-Musik zu erleben."
+        },
+        "stats": {
+            "voice": {
+                "label": "Stimme",
+                "value": "Sopran"
+            },
+            "studies": {
+                "label": "Studium",
+                "value": "mdw Wien"
+            }
+        }
+    },
     "Achievements": {
         "heading": "Preise",
+        "description": "Von frühen Klavierwettbewerben in Bulgarien bis zu Opernbühnen in ganz Europa ist Darinelas Weg durch eine beständigen Reihe von Preisen und Auszeichnungen internationaler Jurys geprägt. Jede Auszeichnung ist weniger Ziel als Wegmarke - eine Gelegenheit, vor neuem Publikum zu stehen, ihr Können an dem ihrer Kolleginnen und Kollegen zu messen und ihre Stimme ein Stück weiter zu tragen. Eine Auswahl aktueller Höhepunkte finden Sie hier, eine vollständige Liste darunter.",
         "allAwardsBtn": "Alle Preise"
     },
     "Contact": {
@@ -21,11 +42,19 @@
         "heading": "Professionelle Erfahrung"
     },
     "Gallery": {
+        "headline": {
+            "lead": "Zwischen den Arien",
+            "accent": "im Bild"
+        },
         "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}"
     },
     "Hero": {
         "imageAlt": "Portrait von Darinela Vangelova",
         "scrollIndicator": "Scrollen"
+    },
+    "MediaPlayer": {
+        "title": "Live in Sofia",
+        "description": "Galakonzert zum Abschluss der 25. internationalen Meisterklasse von Raina Kabaivanska."
     },
     "Navbar": {
         "links": {
