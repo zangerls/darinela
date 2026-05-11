@@ -101,7 +101,7 @@ export function Gallery() {
         >
             <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-8 md:px-10 md:pt-28">
-                    <h2 className="font-display mt-6 max-w-3xl text-4xl font-semibold tracking-tighter md:text-6xl">
+                    <h2 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("headline.lead")}
                         <span className="text-primary italic">
                             {" "}
@@ -156,10 +156,10 @@ export function Gallery() {
                                     </div>
                                 </div>
                                 <figcaption className="mt-4 flex items-start justify-between gap-6 text-sm">
-                                    <span className="font-display text-xl leading-tight italic">
+                                    <span className="text-xl leading-tight italic">
                                         {s.caption}
                                     </span>
-                                    <span className="tracking-wider-2 max-w-[18ch] shrink-0 text-right text-[0.68rem] text-muted-foreground uppercase">
+                                    <span className="tracking-wider-2 max-w-[18ch] shrink-0 text-right text-[0.65rem] text-muted-foreground uppercase">
                                         {s.place}
                                     </span>
                                 </figcaption>

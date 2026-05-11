@@ -149,7 +149,7 @@ export function Hero() {
                     initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
                     animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                     transition={{ duration: 1.2, delay: 0.5 }}
-                    className="font-display text-5xl leading-[0.8] font-bold uppercase sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
+                    className="text-5xl leading-[0.8] font-bold uppercase sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
                 >
                     Darinela
                     <br />

@@ -63,7 +63,7 @@ export function Achievements() {
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
                     <div className="h-fit md:sticky lg:top-24">
-                        <h2 className="font-display mb-8 text-4xl font-semibold tracking-tighter uppercase sm:text-5xl md:text-6xl">
+                        <h2 className="mb-8 text-4xl font-semibold tracking-tighter uppercase sm:text-5xl md:text-6xl">
                             {t("heading")}
                         </h2>
                         <p className="mb-4 max-w-lg text-justify font-mono text-sm text-muted-foreground md:text-base">
@@ -107,7 +107,7 @@ export function Achievements() {
                                 <div className="mb-2 font-mono text-xs uppercase opacity-50">
                                     {award.date} - {award.location}
                                 </div>
-                                <h3 className="font-display group-hover:text-stroke mb-1 text-2xl font-bold uppercase transition-all duration-300 md:text-3xl">
+                                <h3 className="group-hover:text-stroke mb-1 text-2xl font-bold uppercase transition-all duration-300 md:text-3xl">
                                     {award.competition}
                                 </h3>
                                 <Badge>{award.result}</Badge>

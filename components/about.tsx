@@ -39,7 +39,7 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-5xl xl:text-6xl">
+                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("headline.line1")} <br />
                         <span className="font-light italic">
                             {t("headline.line2")}

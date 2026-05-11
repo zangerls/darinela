@@ -16,7 +16,7 @@ export function Contact() {
         >
             <div className="mx-auto max-w-6xl">
                 <div className="mb-20 flex items-end justify-between border-b border-primary pb-4 md:mb-28">
-                    <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("heading")}
                     </h2>
                 </div>
@@ -33,7 +33,7 @@ export function Contact() {
                     <p className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">
                         {t("subHeading")}
                     </p>
-                    <h3 className="font-display text-2xl leading-none font-bold tracking-tighter break-all transition-colors duration-300 group-hover:text-primary md:text-6xl">
+                    <h3 className="text-2xl leading-none font-bold tracking-tighter break-all transition-colors duration-300 group-hover:text-primary md:text-6xl">
                         <span className="italic">{EMAIL.split("@")[0]}</span>
                         <span>@{EMAIL.split("@")[1]}</span>
                     </h3>

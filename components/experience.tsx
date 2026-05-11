@@ -112,7 +112,7 @@ export function Experience() {
         >
             <div className="mx-auto max-w-6xl">
                 <div className="mb-16 border-b border-primary pb-4">
-                    <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("heading")}
                     </h2>
                 </div>
@@ -132,7 +132,7 @@ export function Experience() {
                                 </div>
 
                                 <div>
-                                    <h3 className="font-display mb-1 flex items-center gap-2 text-2xl font-bold uppercase md:text-3xl">
+                                    <h3 className="mb-1 flex items-center gap-2 text-2xl font-bold uppercase md:text-3xl">
                                         {exp.role}
                                         {exp.href && (
                                             <ArrowUpRight className="opacity-25 transition-opacity group-hover/item:opacity-100" />

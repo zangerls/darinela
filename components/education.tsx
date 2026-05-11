@@ -53,7 +53,7 @@ export function Education() {
 
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="mb-16 border-b border-background/20 pb-4">
-                    <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("heading")}
                     </h2>
                 </div>
@@ -75,7 +75,7 @@ export function Education() {
                                 {edu.year}
                             </div>
 
-                            <h3 className="font-display mb-2 text-xl font-bold uppercase md:text-2xl">
+                            <h3 className="mb-2 text-xl font-bold uppercase md:text-2xl">
                                 {edu.degree}
                             </h3>
 
@@ -83,7 +83,7 @@ export function Education() {
                                 <p className="font-bold uppercase">
                                     {edu.institution}
                                 </p>
-                                <p className="text-xs uppercase opacity-70">
+                                <p className="font-mono text-xs tracking-widest uppercase opacity-60">
                                     {edu.location}
                                 </p>
                             </div>

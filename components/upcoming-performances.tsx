@@ -55,7 +55,7 @@ export function UpcomingPerformances() {
         >
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="mb-16 flex items-end justify-between border-b border-background/20 pb-4">
-                    <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("heading")}
                     </h2>
                     <div className="hidden items-center gap-2 font-mono text-xs tracking-widest uppercase opacity-60 md:flex">
@@ -93,10 +93,10 @@ export function UpcomingPerformances() {
                                 <div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-background/5 transition-all duration-500 group-hover:w-full" />
 
                                 <div className="relative font-mono leading-none">
-                                    <div className="font-display text-5xl font-bold tracking-tighter md:text-7xl">
+                                    <div className="text-5xl font-bold tracking-tighter md:text-7xl">
                                         {event.day.toString().padStart(2, "0")}
                                     </div>
-                                    <div className="mt-2 flex items-center gap-2 text-xs tracking-widest uppercase opacity-70">
+                                    <div className="mt-2 flex items-center gap-2 font-mono text-xs tracking-widest uppercase opacity-60">
                                         <span>
                                             {format.dateTime(
                                                 new Date().setMonth(
@@ -113,7 +113,7 @@ export function UpcomingPerformances() {
                                 </div>
 
                                 <div className="relative">
-                                    <h3 className="font-display text-2xl font-bold uppercase md:text-4xl">
+                                    <h3 className="text-2xl font-bold uppercase md:text-4xl">
                                         {event.program}
                                     </h3>
                                     <p className="mt-2 font-mono text-sm uppercase">

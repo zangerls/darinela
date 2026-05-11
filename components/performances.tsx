@@ -190,7 +190,7 @@ function ExpandedPlayer({
                         className="text-center"
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                     >
-                        <h2 className="font-display text-4xl leading-none font-bold uppercase md:text-6xl">
+                        <h2 className="text-4xl leading-none font-bold uppercase md:text-6xl">
                             {perf.title}
                         </h2>
                         <p className="mt-1 font-mono text-xs tracking-widest text-muted-foreground uppercase">
@@ -437,7 +437,7 @@ export function Performances() {
                                             }}
                                         >
                                             <span
-                                                className={`font-display block text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:text-3xl ${isActive ? "text-primary" : ""}`}
+                                                className={`block text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:text-3xl ${isActive ? "text-primary" : ""}`}
                                             >
                                                 {perf.title}
                                             </span>
