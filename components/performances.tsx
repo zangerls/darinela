@@ -28,7 +28,7 @@ const PERFORMANCES: Performance[] = [
         composer: "Composer 1",
         venue: "Venue 1",
         year: 2023,
-        image: "/IMG_1719.jpeg",
+        image: "/IMG_1747.jpeg",
         audio: "/audio.wav",
     },
     {
@@ -38,7 +38,7 @@ const PERFORMANCES: Performance[] = [
         composer: "Composer 2",
         venue: "Venue 2",
         year: 2023,
-        image: "/IMG_1719.jpeg",
+        image: "/IMG_1957.jpeg",
         audio: "/audio.wav",
     },
     {
@@ -48,7 +48,7 @@ const PERFORMANCES: Performance[] = [
         composer: "Composer 3",
         venue: "Venue 3",
         year: 2023,
-        image: "/IMG_1719.jpeg",
+        image: "/IMG_2053.jpeg",
         audio: "/audio.wav",
     },
     {
@@ -58,7 +58,7 @@ const PERFORMANCES: Performance[] = [
         composer: "Composer 4",
         venue: "Venue 4",
         year: 2023,
-        image: "/IMG_1719.jpeg",
+        image: "/IMG_2024.jpeg",
         audio: "/audio.wav",
     },
     {
@@ -68,7 +68,7 @@ const PERFORMANCES: Performance[] = [
         composer: "Composer 5",
         venue: "Venue 5",
         year: 2023,
-        image: "/IMG_1719.jpeg",
+        image: "/IMG_1910.jpeg",
         audio: "/audio.wav",
     },
 ];

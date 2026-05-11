@@ -21,7 +21,7 @@ export function About() {
                     className="relative z-10"
                 >
                     <Image
-                        src="/IMG_1968.webp"
+                        src="/IMG_1747.jpeg"
                         alt="Portrait of Darinela Vangelova"
                         width={960}
                         height={1440}

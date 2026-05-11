@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
-const images: string[] = ["/IMG_1901.webp", "/IMG_1840.webp", "/IMG_1799.webp"];
+const images: string[] = ["/IMG_1901.jpeg", "/IMG_1840.jpeg", "/IMG_1799.jpeg"];
 
 type Coords = {
     x: number;
