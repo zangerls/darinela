@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Pause, Play } from "lucide-react";
 import { useLenis } from "@/providers/lenis-provider";
 import { Separator } from "./ui/separator";
+import { useTranslations } from "next-intl";
 
 type Performance = {
     id: number;
@@ -170,6 +171,7 @@ function ExpandedPlayer({
     perf: Performance;
     onClose: () => void;
 }) {
+    const t = useTranslations("Performances.expandedPlayer");
     const { isPlaying, progress, duration, toggle, seek } = useAudioPlayer(
         perf.audio
     );
@@ -255,7 +257,11 @@ function ExpandedPlayer({
                                     toggle();
                                 }}
                                 className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-                                aria-label={isPlaying ? "Pause" : "Play"}
+                                aria-label={
+                                    isPlaying
+                                        ? t("playButton.pause")
+                                        : t("playButton.play")
+                                }
                             >
                                 {isPlaying ? (
                                     <Pause className="size-5" />
@@ -276,6 +282,7 @@ function ScrollProgressBar({
 }: {
     sectionRef: React.RefObject<HTMLDivElement | null>;
 }) {
+    const t = useTranslations("Performances.scrollProgressBar");
     const fillRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
@@ -322,14 +329,15 @@ function ScrollProgressBar({
                 />
             </div>
             <div className="mt-2 flex items-center justify-between font-mono text-[0.65rem] tracking-widest text-muted-foreground uppercase">
-                <span>Scroll to continue</span>
-                <span>{PERFORMANCES.length} recordings</span>
+                <span>{t("indication")}</span>
+                <span>{t("nRecordings", { count: PERFORMANCES.length })}</span>
             </div>
         </div>
     );
 }
 
 export function Performances() {
+    const t = useTranslations("Performances");
     const sectionRef = useRef<HTMLDivElement>(null);
     const [activeId, setActiveId] = useState<number>(PERFORMANCES[0].id);
     const [expandedId, setExpandedId] = useState<number | null>(null);
@@ -394,7 +402,7 @@ export function Performances() {
                             <div className="mb-1 flex items-center gap-4">
                                 <Separator className="w-8! bg-muted-foreground sm:w-10! md:w-12!" />
                                 <span className="md:text-md text-sm text-muted-foreground uppercase">
-                                    Live Performances
+                                    {t("heading")}
                                 </span>
                             </div>
                             {PERFORMANCES.map((perf) => {

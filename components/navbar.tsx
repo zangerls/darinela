@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguagePicker } from "./language-picker";
 import { Separator } from "./ui/separator";
+import { useTranslations } from "next-intl";
 
 type Link = {
     label: string;
@@ -59,19 +60,20 @@ function FlagAnimation({
 }
 
 export function Navbar() {
+    const t = useTranslations("Navbar");
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [flagKey, setFlagKey] = useState<number>(0);
     const [flagPlaying, setFlagPlaying] = useState<boolean>(false);
 
     const links: Link[] = [
-        { label: "About", href: "#about" },
-        { label: "Experience", href: "#experience" },
-        { label: "Education", href: "#education" },
-        { label: "Acclaim", href: "#acclaim" },
-        { label: "Performances", href: "#performances" },
-        { label: "Upcoming", href: "#upcoming" },
-        { label: "Gallery", href: "#gallery" },
-        { label: "Contact", href: "#contact" },
+        { label: t("links.about"), href: "#about" },
+        { label: t("links.experience"), href: "#experience" },
+        { label: t("links.education"), href: "#education" },
+        { label: t("links.acclaim"), href: "#acclaim" },
+        { label: t("links.performances"), href: "#performances" },
+        { label: t("links.upcoming"), href: "#upcoming" },
+        { label: t("links.gallery"), href: "#gallery" },
+        { label: t("links.contact"), href: "#contact" },
     ];
 
     useEffect(() => {
@@ -108,7 +110,9 @@ export function Navbar() {
                             className="group pointer-events-auto flex cursor-pointer items-center gap-4 font-mono text-sm tracking-widest transition-opacity hover:opacity-70"
                         >
                             <span className="hidden uppercase md:block">
-                                {isOpen ? "Close" : "Menu"}
+                                {isOpen
+                                    ? t("menuLabel.close")
+                                    : t("menuLabel.menu")}
                             </span>
                             <div className="relative flex h-8 w-8 items-center">
                                 <motion.div
@@ -163,10 +167,10 @@ export function Navbar() {
                                     }}
                                     className="pointer-events-auto cursor-pointer uppercase transition-opacity hover:opacity-70"
                                 >
-                                    Born in Bulgaria
+                                    {t("footer.bornInBulgaria")}
                                 </button>
                                 <br />
-                                <span>Based in Vienna</span>
+                                <span>{t("footer.basedInVienna")}</span>
                             </div>
                         </motion.div>
                     )}

@@ -1,3 +1,69 @@
 {
-  "Root": "Root"
+    "Achievements": {
+        "heading": "Preise",
+        "allAwardsBtn": "Alle Preise"
+    },
+    "Contact": {
+        "heading": "Kontakt",
+        "subHeading": "Sagen Sie Hallo!",
+        "social": "Soziale Medien",
+        "share": "Teilen",
+        "location":  {
+            "basedIn": "Basiert in",
+            "city": "Wien",
+            "country": "Österreich"
+        }
+    },
+    "Education": {
+        "heading": "Ausbildung"
+    },
+    "Experience": {
+        "heading": "Professionelle Erfahrung"
+    },
+    "Gallery": {
+        "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}"
+    },
+    "Hero": {
+        "imageAlt": "Portrait von Darinela Vangelova",
+        "scrollIndicator": "Scrollen"
+    },
+    "Navbar": {
+        "links": {
+            "about": "Über Mich",
+            "experience": "Erfahrung",
+            "education": "Ausbildung",
+            "acclaim": "Preise",
+            "performances": "Aufzeichnungen",
+            "upcoming": "Termine",
+            "gallery": "Gallerie",
+            "contact": "Kontakt"
+        },
+        "menuLabel": {
+            "menu": "Menü",
+            "close": "Schließen"
+        },
+        "footer": {
+            "bornInBulgaria": "Geboren in Bulgarien",
+            "basedInVienna": "Basiert in Wien"
+        }
+    },
+    "Performances": {
+        "heading": "Aufzeichnungen",
+        "expandedPlayer": {
+            "playButton": {
+                "play": "Wiedergeben",
+                "pause": "Pausieren"
+            }
+        },
+        "scrollProgressBar": {
+            "nRecordings": "{count, plural, =0 {Keine Aufzeichnungen} =1 {Eine Aufzeichnung} other {# Aufzeichnungen}}"
+        }
+    },
+    "ThemeToggle": {
+        "switchLabel": {
+        }
+    },
+    "UpcomingPerformances": {
+        "heading": "Termine"
+    }
 }

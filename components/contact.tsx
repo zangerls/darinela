@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 const EMAIL = "email@email.com";
 const INSTAGRAM_URL = "https://instagram.com/user";
 const YOUTUBE_URL = "https://youtube.com/@user";
 
 export function Contact() {
+    const t = useTranslations("Contact");
     return (
         <section
             id="contact"
@@ -15,7 +17,7 @@ export function Contact() {
             <div className="mx-auto max-w-6xl">
                 <div className="mb-20 flex items-end justify-between border-b border-primary pb-4 md:mb-28">
                     <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
-                        Contact
+                        {t("heading")}
                     </h2>
                 </div>
 
@@ -29,7 +31,7 @@ export function Contact() {
                     data-clickable
                 >
                     <p className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-                        Get in Touch
+                        {t("subHeading")}
                     </p>
                     <h3 className="font-display text-2xl leading-none font-bold tracking-tighter break-all transition-colors duration-300 group-hover:text-primary md:text-6xl">
                         <span className="italic">{EMAIL.split("@")[0]}</span>
@@ -45,7 +47,7 @@ export function Contact() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         <h4 className="mb-3 border-b border-primary pb-1 font-mono text-xs tracking-widest uppercase">
-                            Social
+                            {t("social")}
                         </h4>
                         <ul className="space-y-2 font-mono text-sm uppercase">
                             <li>
@@ -80,7 +82,7 @@ export function Contact() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <h4 className="mb-3 border-b border-primary pb-1 font-mono text-xs tracking-widest uppercase">
-                            Share
+                            {t("share")}
                         </h4>
                         <button
                             type="button"
@@ -106,11 +108,13 @@ export function Contact() {
                         className="md:text-right"
                     >
                         <h4 className="mb-3 border-b border-primary pb-1 font-mono text-xs tracking-widest uppercase">
-                            Based In
+                            {t("location.basedIn")}
                         </h4>
-                        <p className="font-mono text-sm uppercase">Vienna</p>
+                        <p className="font-mono text-sm uppercase">
+                            {t("location.city")}
+                        </p>
                         <p className="font-mono text-xs text-muted-foreground uppercase">
-                            Austria
+                            {t("location.country")}
                         </p>
                     </motion.div>
                 </div>

@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useFormatter, useTranslations } from "next-intl";
 
 type Upcoming = {
-    day: string;
-    month: string;
-    year: string;
+    day: number;
+    month: number;
+    year: number;
     program: string;
     venue: string;
     location: string;
@@ -14,29 +15,32 @@ type Upcoming = {
 };
 
 export function UpcomingPerformances() {
+    const t = useTranslations("UpcomingPerformances");
+    const format = useFormatter();
+
     const upcoming: Upcoming[] = [
         {
-            day: "1",
-            month: "Jan",
-            year: "2026",
+            day: 1,
+            month: 1,
+            year: 2026,
             program: "Program 1",
             venue: "Venue 1",
             location: "Location 1",
             role: "Role 1",
         },
         {
-            day: "2",
-            month: "Jan",
-            year: "2026",
+            day: 31,
+            month: 12,
+            year: 2026,
             program: "Program 2",
             venue: "Venue 2",
             location: "Location 2",
             role: "Role 2",
         },
         {
-            day: "3",
-            month: "Jan",
-            year: "2026",
+            day: 3,
+            month: 3,
+            year: 2026,
             program: "Program 3",
             venue: "Venue 3",
             location: "Location 3",
@@ -52,7 +56,7 @@ export function UpcomingPerformances() {
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="mb-16 flex items-end justify-between border-b border-background/20 pb-4">
                     <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
-                        Upcoming Performances
+                        {t("heading")}
                     </h2>
                     <div className="hidden items-center gap-2 font-mono text-xs tracking-widest uppercase opacity-60 md:flex">
                         <span className="relative flex h-2 w-2">
@@ -90,10 +94,19 @@ export function UpcomingPerformances() {
 
                                 <div className="relative font-mono leading-none">
                                     <div className="font-display text-5xl font-bold tracking-tighter md:text-7xl">
-                                        {event.day.padStart(2, "0")}
+                                        {event.day.toString().padStart(2, "0")}
                                     </div>
                                     <div className="mt-2 flex items-center gap-2 text-xs tracking-widest uppercase opacity-70">
-                                        <span>{event.month}</span>
+                                        <span>
+                                            {format.dateTime(
+                                                new Date().setMonth(
+                                                    event.month - 1
+                                                ),
+                                                {
+                                                    month: "short",
+                                                }
+                                            )}
+                                        </span>
                                         <span className="opacity-40">/</span>
                                         <span>{event.year}</span>
                                     </div>

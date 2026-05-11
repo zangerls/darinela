@@ -1,9 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
+    const t = useTranslations("ThemeToggle");
     const { resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState<boolean>(false);
 
@@ -12,7 +14,7 @@ export function ThemeToggle() {
     }, []);
 
     const isDark = mounted && resolvedTheme === "dark";
-    const label = isDark ? "Switch to light" : "Switch to dark";
+    const label = isDark ? t("switchLabel.toLight") : t("switchLabel.toDark");
 
     return (
         <button

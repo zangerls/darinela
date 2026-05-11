@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 type Slide = {
     src: string;
@@ -55,6 +56,7 @@ const slides: Slide[] = [
 ];
 
 export function Gallery() {
+    const t = useTranslations("Gallery");
     const trackRef = useRef<HTMLDivElement | null>(null);
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const [progress, setProgress] = useState<number>(0);
@@ -141,7 +143,7 @@ export function Gallery() {
                                         className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]"
                                     />
                                     <div className="pointer-events-none absolute inset-0 ring-1 ring-foreground/10 ring-inset" />
-                                    <div className="tracking-wider-2 pointer-events-none absolute right-4 bottom-4 left-4 flex items-end justify-between font-mono text-[0.65rem] text-background uppercase mix-blend-difference">
+                                    <div className="tracking-wider-2 pointer-events-none absolute right-4 bottom-4 left-4 flex items-end justify-between font-mono text-[0.65rem] text-background text-white uppercase">
                                         <span>
                                             N°&nbsp;
                                             {String(i + 1).padStart(2, "0")}
@@ -172,8 +174,8 @@ export function Gallery() {
                         />
                     </div>
                     <div className="tracking-wider-2 mt-3 flex items-center justify-between text-[0.65rem] text-muted-foreground uppercase">
-                        <span>Scroll to pan</span>
-                        <span>{slides.length} frames</span>
+                        <span>{t("scrollToPan")}</span>
+                        <span>{t("nSlides", { count: slides.length })}</span>
                     </div>
                 </div>
             </div>

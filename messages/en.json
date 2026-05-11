@@ -1,3 +1,73 @@
 {
-  "Root": "Root"
+    "Achievements": {
+        "heading": "Critical Acclaim",
+        "allAwardsBtn": "View all awards"
+    },
+    "Contact": {
+        "heading": "Contact",
+        "subHeading": "Get in Touch",
+        "social": "Social",
+        "share": "Share",
+        "location":  {
+            "basedIn": "Based in",
+            "city": "Vienna",
+            "country": "Austria"
+        }
+    },
+    "Education": {
+        "heading": "Education"
+    },
+    "Experience": {
+        "heading": "Professional Experience"
+    },
+    "Gallery": {
+        "scrollToPan": "Scroll to pan",
+        "nSlides": "{count, plural, =0 {no slides} =1 {one slide} other {# slides}}"
+    },
+    "Hero": {
+        "imageAlt": "Portrait of Darinela Vangelova",
+        "scrollIndicator": "Scroll"
+    },
+    "Navbar": {
+        "links": {
+            "about": "About",
+            "experience": "Experience",
+            "education": "Education",
+            "acclaim": "Acclaim",
+            "performances": "Recordings",
+            "upcoming": "Upcoming",
+            "gallery": "Gallery",
+            "contact": "Contact"
+        },
+        "menuLabel": {
+            "menu": "Menu",
+            "close": "Close"
+        },
+        "footer": {
+            "bornInBulgaria": "Born in Bulgaria",
+            "basedInVienna": "Based in Vienna"
+        }
+    },
+    "Performances": {
+        "heading": "Recordings",
+        "expandedPlayer": {
+            "playButton": {
+                "play": "Play",
+                "pause": "Pause"
+            }
+        },
+        "scrollProgressBar": {
+            "indication": "Scroll to continue",
+            "nRecordings": "{count, plural, =0 {no recordings} =1 {one recording} other {# recordings}}"
+        }
+    },
+    "ThemeToggle": {
+        "switchLabel": {
+            "toDark": "Switch to dark",
+            "toLight": "Switch to light"
+        }
+    },
+    "UpcomingPerformances": {
+        "heading": "Upcoming Performances"
+    }
 }

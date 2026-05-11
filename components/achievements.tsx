@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
 import { HoverExpand } from "./hover-expand";
+import { useTranslations } from "next-intl";
 
 type Achievement = {
     date: string;
@@ -14,6 +15,8 @@ type Achievement = {
 };
 
 export function Achievements() {
+    const t = useTranslations("Achievements");
+
     const achievements: Achievement[] = [
         {
             date: "2025",
@@ -61,7 +64,7 @@ export function Achievements() {
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
                     <div className="h-fit md:sticky lg:top-24">
                         <h2 className="font-display mb-8 text-4xl font-semibold tracking-tighter uppercase sm:text-5xl md:text-6xl">
-                            Critical Acclaim
+                            {t("heading")}
                         </h2>
                         <p className="mb-4 max-w-lg text-justify font-mono text-sm text-muted-foreground md:text-base">
                             Donec velit felis, tempor ac libero et, dictum
@@ -82,7 +85,7 @@ export function Achievements() {
                             data-testid="link-view-all-achievements"
                             className="inline-block border border-primary/30 px-6 py-3 font-mono text-sm tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                         >
-                            View all awards
+                            {t("allAwardsBtn")}
                         </Link>
                     </div>
 

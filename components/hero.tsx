@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -12,6 +13,7 @@ type Coords = {
 };
 
 export function Hero() {
+    const t = useTranslations("Hero");
     const containerRef = useRef<HTMLDivElement>(null);
     const [mousePosition, setMousePosition] = useState<Coords>({ x: 0, y: 0 });
     const { scrollYProgress } = useScroll({
@@ -77,7 +79,7 @@ export function Hero() {
                         <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
                         <Image
                             src={images[0]}
-                            alt="First portrait of Darinela Vangelova"
+                            alt={t("imageAlt")}
                             fill
                             priority
                             sizes="(min-width: 1024px) 450px, (min-width: 768px) 380px, 70vw"
@@ -99,7 +101,7 @@ export function Hero() {
                         <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
                         <Image
                             src={images[1]}
-                            alt="Second portrait of Darinela Vangelova"
+                            alt={t("imageAlt")}
                             fill
                             priority
                             sizes="(min-width: 1024px) 450px, (min-width: 768px) 380px, 70vw"
@@ -121,7 +123,7 @@ export function Hero() {
                         <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
                         <Image
                             src={images[2]}
-                            alt="Third portrait of Darinela Vangelova"
+                            alt={t("imageAlt")}
                             fill
                             priority
                             sizes="(min-width: 1024px) 450px, (min-width: 768px) 380px, 70vw"
@@ -159,7 +161,7 @@ export function Hero() {
 
             <div className="absolute bottom-4 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center gap-2 text-white mix-blend-difference">
                 <span className="animate-pulse font-mono text-xs tracking-widest uppercase">
-                    Scroll
+                    {t("scrollIndicator")}
                 </span>
                 <div className="h-8 w-[1px] bg-white/50 md:h-10"></div>
             </div>

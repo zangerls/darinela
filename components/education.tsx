@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 type Education = {
     year: string;
@@ -12,6 +13,8 @@ type Education = {
 };
 
 export function Education() {
+    const t = useTranslations("Education");
+
     const education: Education[] = [
         {
             year: "2024 - 2026",
@@ -51,11 +54,11 @@ export function Education() {
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="mb-16 border-b border-background/20 pb-4">
                     <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
-                        Education
+                        {t("heading")}
                     </h2>
                 </div>
 
-                <div className="grid gap-16 md:grid-cols-2">
+                <div className="grid gap-8 md:grid-cols-2 md:gap-12">
                     {education.map((edu, index) => (
                         <motion.a
                             data-clickable

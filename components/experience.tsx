@@ -2,6 +2,7 @@
 
 import { motion, MotionProps } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { ReactNode } from "react";
 
 type Experience = {
@@ -37,7 +38,7 @@ function ExperienceItem({
         <Component
             data-clickable={!!href}
             {...getMotionProps(index)}
-            className="group relative block border-l-2 border-primary/30 pl-8 transition-colors duration-500 hover:border-primary"
+            className="group/item relative block border-l-2 border-primary/30 pb-16 pl-8 transition-colors duration-500 hover:border-primary"
             {...(href
                 ? { href, target: "_blank", rel: "noopener noreferrer" }
                 : {})}
@@ -48,6 +49,8 @@ function ExperienceItem({
 }
 
 export function Experience() {
+    const t = useTranslations("Experience");
+
     const experiences: Experience[] = [
         {
             year: "2026",
@@ -110,7 +113,7 @@ export function Experience() {
             <div className="mx-auto max-w-6xl">
                 <div className="mb-16 border-b border-primary pb-4">
                     <h2 className="font-display text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
-                        Professional Experience
+                        {t("heading")}
                     </h2>
                 </div>
 
