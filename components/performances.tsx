@@ -322,7 +322,7 @@ function ScrollProgressBar({
     }, [lenis, sectionRef]);
 
     return (
-        <div className="absolute right-0 bottom-0 left-0 px-6 pb-6 md:px-44 md:pb-12">
+        <div className="absolute right-0 bottom-0 left-0 px-6 pb-6 md:px-52 md:pb-12">
             <div className="relative h-px w-full overflow-hidden bg-border">
                 <div
                     ref={fillRef}

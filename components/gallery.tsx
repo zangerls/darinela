@@ -170,7 +170,7 @@ export function Gallery() {
                     </div>
                 </div>
 
-                <div className="mx-auto w-full px-6 pt-10 pb-6 md:px-44 md:pb-12">
+                <div className="mx-auto w-full px-6 pt-10 pb-6 md:px-52 md:pb-12">
                     <div className="relative h-px w-full overflow-hidden bg-border">
                         <div
                             className="absolute top-0 left-0 h-px bg-primary"
