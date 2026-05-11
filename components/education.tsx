@@ -66,9 +66,9 @@ export function Education() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group relative border border-background/20 p-8 transition-all duration-500 hover:bg-background/10"
+                            className="group relative border border-background/20 p-8 transition-all duration-300 hover:bg-background/10"
                         >
-                            <div className="mb-4 font-mono text-xs tracking-widest uppercase opacity-60 group-hover:opacity-100">
+                            <div className="mb-4 font-mono text-xs tracking-widest uppercase opacity-60 duration-300 group-hover:opacity-100">
                                 {edu.year}
                             </div>
 
@@ -89,7 +89,7 @@ export function Education() {
                                 {edu.focus}
                             </p>
 
-                            <div className="absolute top-0 right-0 h-full w-0 bg-background/5 transition-all duration-500 group-hover:w-1" />
+                            <div className="absolute top-0 right-0 h-full w-1 bg-primary opacity-0 transition-all duration-300 group-hover:opacity-100" />
                         </motion.a>
                     ))}
                 </div>
