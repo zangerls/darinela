@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(0.9765625,0,0,0.9765625,0,0)"><svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none"><rect width="1024" height="1024" fill="black"></rect><path d="M696.292 208C720.408 208 741.268 217.182 758.686 235.31H758.687C778.36 255.699 788 283.22 788 317.392C788 349.393 779.465 384.724 762.612 423.323L615.389 764.541L615.377 764.568C607.512 782.432 597.334 795.68 584.652 803.881C572.034 812.04 556.617 816 538.626 816H430.148L436.524 809.253C447.715 797.411 453.183 784.113 453.183 769.218V769.127L453.187 769.035C453.843 754.602 449.23 734.726 438.857 709.156V709.155L236.303 218.744L234.021 213.218H444.916L438.083 220.047C417.589 240.528 415.464 273.856 434.778 322.131L602.411 729.711L682.18 545.368C698.014 508.21 705.865 472.925 705.865 439.479C705.865 399.221 694.964 365.352 673.332 337.634C653.375 313.577 635.156 301.773 618.719 300.51L615.025 300.226V296.521C615.025 269.262 623.302 247.287 640.204 231.09C654.929 215.672 673.734 208 696.292 208Z" fill="#EAEAEA" stroke="#EAEAEA" stroke-width="8"></path><rect x="443" y="332.04" width="61.3674" height="513.944" transform="rotate(-22.3832 443 332.04)" fill="black"></rect></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(0.9765625,0,0,0.9765625,0,0)"><svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none"><rect width="1024" height="1024" fill="#EAEAEA"></rect><path d="M696.292 208C720.408 208 741.268 217.182 758.686 235.31H758.687C778.36 255.699 788 283.22 788 317.392C788 349.393 779.465 384.724 762.612 423.323L615.389 764.541L615.377 764.568C607.512 782.432 597.334 795.68 584.652 803.881C572.034 812.04 556.617 816 538.626 816H430.148L436.524 809.253C447.715 797.411 453.183 784.113 453.183 769.218V769.127L453.187 769.035C453.843 754.602 449.23 734.726 438.857 709.156V709.155L236.303 218.744L234.021 213.218H444.916L438.083 220.047C417.589 240.528 415.464 273.856 434.778 322.131L602.411 729.711L682.18 545.368C698.014 508.21 705.865 472.925 705.865 439.479C705.865 399.221 694.964 365.352 673.332 337.634C653.375 313.577 635.156 301.773 618.719 300.51L615.025 300.226V296.521C615.025 269.262 623.302 247.287 640.204 231.09C654.929 215.672 673.734 208 696.292 208Z" fill="black" stroke="black" stroke-width="8"></path><rect x="443" y="332.04" width="61.3674" height="513.944" transform="rotate(-22.3832 443 332.04)" fill="#EAEAEA"></rect></svg></g></g></svg></g></svg>
