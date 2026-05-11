@@ -46,6 +46,7 @@
             "lead": "Zwischen den Arien",
             "accent": "im Bild"
         },
+        "scrollToPan": "Fortschritt",
         "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}"
     },
     "Hero": {
@@ -85,14 +86,18 @@
             }
         },
         "scrollProgressBar": {
+            "indication": "Fortschritt",
             "nRecordings": "{count, plural, =0 {Keine Aufzeichnungen} =1 {Eine Aufzeichnung} other {# Aufzeichnungen}}"
         }
     },
     "ThemeToggle": {
         "switchLabel": {
+            "toDark": "Zu Dark-Mode",
+            "toLight": "Zu Light-Mode"
         }
     },
     "UpcomingPerformances": {
-        "heading": "Termine"
+        "heading": "Termine",
+        "indicator": "Sehen Sie Darinela Live"
     }
 }
