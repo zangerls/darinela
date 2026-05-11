@@ -7,6 +7,7 @@ import { Pause, Play } from "lucide-react";
 import { useLenis } from "@/providers/lenis-provider";
 import { Separator } from "./ui/separator";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
 type Performance = {
     id: number;
@@ -437,7 +438,10 @@ export function Performances() {
                                             }}
                                         >
                                             <span
-                                                className={`block text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:text-3xl ${isActive ? "text-primary" : ""}`}
+                                                className={cn(
+                                                    "block text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:text-3xl",
+                                                    isActive && "text-primary"
+                                                )}
                                             >
                                                 {perf.title}
                                             </span>

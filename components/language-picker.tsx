@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 
 export function LanguagePicker() {
     const locale = useLocale();
@@ -33,9 +34,10 @@ export function LanguagePicker() {
                         type="button"
                         onClick={() => selectLocale(l)}
                         disabled={isPending}
-                        className={`pointer-events-auto cursor-pointer text-xs uppercase transition-opacity hover:opacity-100 ${
+                        className={cn(
+                            "pointer-events-auto cursor-pointer text-xs uppercase transition-opacity hover:opacity-100",
                             isActive ? "opacity-100" : "opacity-50"
-                        }`}
+                        )}
                     >
                         {l}
                     </button>
