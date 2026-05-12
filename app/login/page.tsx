@@ -25,7 +25,7 @@ export default async function LoginPage() {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        height: "100vh",
+                        height: "100dvh",
                         gap: 12,
                     }}
                 >

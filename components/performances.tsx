@@ -360,11 +360,11 @@ export function Performances() {
             id="performances"
             ref={sectionRef}
             className="relative bg-background"
-            style={{ height: "200vh" }}
+            style={{ height: "200svh" }}
         >
             <motion.div
                 layoutScroll
-                className="sticky top-0 h-screen overflow-hidden"
+                className="sticky top-0 h-svh overflow-hidden"
                 style={{ transform: "translateZ(0)", willChange: "transform" }}
                 onClick={() => {
                     if (expandedId !== null) setExpandedId(null);

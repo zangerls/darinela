@@ -12,7 +12,7 @@ import { UpcomingPerformances } from "@/components/upcoming-performances";
 
 export default function Page() {
     return (
-        <div className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white">
+        <div className="min-h-dvh bg-background text-foreground selection:bg-black selection:text-white">
             <Navbar />
             <main className="relative z-10 bg-background shadow-2xl">
                 <Hero />

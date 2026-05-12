@@ -42,7 +42,7 @@ export function Hero() {
         <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
-            className="relative flex h-screen min-h-[500px] items-center justify-center overflow-hidden bg-background"
+            className="relative flex h-dvh min-h-[500px] items-center justify-center overflow-hidden bg-background"
         >
             <motion.div
                 style={{

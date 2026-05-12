@@ -96,10 +96,10 @@ export function Gallery() {
             id="gallery"
             ref={sectionRef}
             className="relative border-t border-border bg-background"
-            style={{ height: "320vh" }}
+            style={{ height: "320svh" }}
             aria-label="Photo gallery, scrolls horizontally"
         >
-            <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
+            <div className="sticky top-0 flex h-svh flex-col overflow-hidden">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-8 md:px-10 md:pt-28">
                     <h2 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
                         {t("headline.lead")}
