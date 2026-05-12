@@ -97,11 +97,14 @@ export function Gallery() {
             ref={sectionRef}
             className="relative border-t border-border bg-background"
             style={{ height: "320svh" }}
-            aria-label="Photo gallery, scrolls horizontally"
+            aria-labelledby="gallery-heading"
         >
             <div className="sticky top-0 flex h-svh flex-col overflow-hidden">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-8 md:px-10 md:pt-28">
-                    <h2 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2
+                        id="gallery-heading"
+                        className="mt-6 max-w-3xl text-4xl font-semibold tracking-tighter uppercase md:text-6xl"
+                    >
                         {t("headline.lead")}
                         <span className="text-primary italic">
                             {" "}
@@ -146,7 +149,10 @@ export function Gallery() {
                                         }
                                         className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]"
                                     />
-                                    <div className="pointer-events-none absolute inset-0 ring-1 ring-foreground/10 ring-inset" />
+                                    <div
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute inset-0 ring-1 ring-foreground/10 ring-inset"
+                                    />
                                     <div className="tracking-wider-2 pointer-events-none absolute right-4 bottom-4 left-4 flex items-end justify-between font-mono text-[0.65rem] text-background text-white uppercase">
                                         <span>
                                             N°&nbsp;

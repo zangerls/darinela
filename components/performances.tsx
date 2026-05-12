@@ -76,7 +76,10 @@ const PERFORMANCES: Performance[] = [
 function Waveform({ isPlaying }: { isPlaying: boolean }) {
     const bars = 40;
     return (
-        <div className="flex h-10 items-center justify-center gap-[3px]">
+        <div
+            aria-hidden="true"
+            className="flex h-10 items-center justify-center gap-[3px]"
+        >
             {Array.from({ length: bars }).map((_, i) => (
                 <motion.div
                     key={i}
@@ -173,15 +176,25 @@ function ExpandedPlayer({
     onClose: () => void;
 }) {
     const t = useTranslations("Performances.expandedPlayer");
+    const tRoot = useTranslations("Performances");
     const { isPlaying, progress, duration, toggle, seek } = useAudioPlayer(
         perf.audio
     );
 
     return (
         <>
-            <div className="absolute inset-0 z-10" onClick={onClose} />
+            <div
+                aria-hidden="true"
+                className="absolute inset-0 z-10"
+                onClick={onClose}
+            />
 
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
+            <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={`recording-title-${perf.id}`}
+                className="absolute inset-0 z-20 flex items-center justify-center"
+            >
                 <div
                     className="flex w-[60vw] max-w-2xl flex-col"
                     onClick={(e) => e.stopPropagation()}
@@ -191,9 +204,12 @@ function ExpandedPlayer({
                         className="text-center"
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                     >
-                        <h2 className="text-4xl leading-none font-bold uppercase md:text-6xl">
+                        <h3
+                            id={`recording-title-${perf.id}`}
+                            className="text-4xl leading-none font-bold uppercase md:text-6xl"
+                        >
                             {perf.title}
-                        </h2>
+                        </h3>
                         <p className="mt-1 font-mono text-xs tracking-widest text-muted-foreground uppercase">
                             {perf.opera} — {perf.composer}
                         </p>
@@ -237,6 +253,12 @@ function ExpandedPlayer({
                         <Waveform isPlaying={isPlaying} />
 
                         <div
+                            role="slider"
+                            tabIndex={0}
+                            aria-label={tRoot("seekLabel")}
+                            aria-valuemin={0}
+                            aria-valuemax={100}
+                            aria-valuenow={Math.round(progress * 100)}
                             className="relative h-[2px] w-full cursor-pointer bg-border"
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -244,8 +266,18 @@ function ExpandedPlayer({
                                     e.currentTarget.getBoundingClientRect();
                                 seek((e.clientX - rect.left) / rect.width);
                             }}
+                            onKeyDown={(e) => {
+                                if (e.key === "ArrowLeft") {
+                                    e.preventDefault();
+                                    seek(Math.max(0, progress - 0.05));
+                                } else if (e.key === "ArrowRight") {
+                                    e.preventDefault();
+                                    seek(Math.min(1, progress + 0.05));
+                                }
+                            }}
                         >
                             <motion.div
+                                aria-hidden="true"
                                 className="absolute inset-y-0 left-0 bg-primary"
                                 style={{ width: `${progress * 100}%` }}
                             />
@@ -322,7 +354,10 @@ function ScrollProgressBar({
     }, [lenis, sectionRef]);
 
     return (
-        <div className="absolute right-0 bottom-0 left-0 px-6 pb-6 md:px-52 md:pb-12">
+        <div
+            aria-hidden="true"
+            className="absolute right-0 bottom-0 left-0 px-6 pb-6 md:px-52 md:pb-12"
+        >
             <div className="relative h-px w-full overflow-hidden bg-border">
                 <div
                     ref={fillRef}
@@ -359,6 +394,7 @@ export function Performances() {
         <section
             id="performances"
             ref={sectionRef}
+            aria-label={t("regionLabel")}
             className="relative bg-background"
             style={{ height: "200svh" }}
         >
@@ -400,16 +436,20 @@ export function Performances() {
                         </div>
 
                         <div className="absolute right-6 bottom-20 flex flex-col items-end gap-1 md:right-12 md:bottom-32">
-                            <div className="mb-1 flex items-center gap-4">
+                            <h2
+                                id="performances-heading"
+                                className="mb-1 flex items-center gap-4"
+                            >
                                 <Separator className="w-8! bg-muted-foreground sm:w-10! md:w-12!" />
                                 <span className="md:text-md text-sm text-muted-foreground uppercase">
                                     {t("heading")}
                                 </span>
-                            </div>
+                            </h2>
                             {PERFORMANCES.map((perf) => {
                                 const isActive = perf.id === activeId;
                                 return (
                                     <motion.button
+                                        type="button"
                                         key={perf.id}
                                         layoutId={`label-${perf.id}`}
                                         onHoverStart={() =>
@@ -419,6 +459,12 @@ export function Performances() {
                                             setActiveId(perf.id);
                                             setExpandedId(perf.id);
                                         }}
+                                        aria-label={t("openRecording", {
+                                            title: perf.title,
+                                            opera: perf.opera,
+                                            composer: perf.composer,
+                                        })}
+                                        aria-pressed={isActive}
                                         className="group relative text-right"
                                         transition={{
                                             layout: {

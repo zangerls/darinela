@@ -42,6 +42,7 @@ export function Hero() {
         <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
+            aria-labelledby="hero-name"
             className="relative flex h-dvh min-h-[500px] items-center justify-center overflow-hidden bg-background"
         >
             <motion.div
@@ -53,6 +54,7 @@ export function Hero() {
                 className="perspective-1000 relative z-10 aspect-[3/4] w-full max-w-md md:aspect-square md:max-w-xl"
             >
                 <motion.div
+                    aria-hidden="true"
                     animate={{ rotate: 360 }}
                     transition={{
                         duration: 30,
@@ -76,7 +78,10 @@ export function Hero() {
                             ease: [0.16, 1, 0.3, 1],
                         }}
                     >
-                        <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent"
+                        />
                         <Image
                             src={images[0]}
                             alt={t("imageAlt")}
@@ -98,7 +103,10 @@ export function Hero() {
                             ease: [0.16, 1, 0.3, 1],
                         }}
                     >
-                        <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent"
+                        />
                         <Image
                             src={images[1]}
                             alt={t("imageAlt")}
@@ -120,7 +128,10 @@ export function Hero() {
                             ease: [0.16, 1, 0.3, 1],
                         }}
                     >
-                        <div className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-0 z-20 bg-primary/10 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent"
+                        />
                         <Image
                             src={images[2]}
                             alt={t("imageAlt")}
@@ -133,6 +144,7 @@ export function Hero() {
                 </div>
 
                 <motion.div
+                    aria-hidden="true"
                     animate={{ y: [0, 30, 0] }}
                     transition={{
                         duration: 7,
@@ -145,7 +157,8 @@ export function Hero() {
             </motion.div>
 
             <div className="absolute bottom-24 left-6 z-40 md:bottom-32 md:left-24">
-                <motion.h2
+                <motion.h1
+                    id="hero-name"
                     initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
                     animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                     transition={{ duration: 1.2, delay: 0.5 }}
@@ -156,10 +169,13 @@ export function Hero() {
                     <span className="ml-12 font-light uppercase italic">
                         Vangelova
                     </span>
-                </motion.h2>
+                </motion.h1>
             </div>
 
-            <div className="absolute bottom-4 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center gap-2 text-white mix-blend-difference">
+            <div
+                aria-hidden="true"
+                className="absolute bottom-4 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center gap-2 text-white mix-blend-difference"
+            >
                 <span className="animate-pulse font-mono text-xs tracking-widest uppercase">
                     {t("scrollIndicator")}
                 </span>

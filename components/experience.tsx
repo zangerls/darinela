@@ -35,16 +35,18 @@ function ExperienceItem({
     const Component = href ? motion.a : motion.div;
 
     return (
-        <Component
-            data-clickable={!!href}
-            {...getMotionProps(index)}
-            className="group/item relative block border-l-2 border-primary/30 pb-16 pl-8 transition-colors duration-500 hover:border-primary"
-            {...(href
-                ? { href, target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-        >
-            {children}
-        </Component>
+        <li className="list-none">
+            <Component
+                data-clickable={!!href}
+                {...getMotionProps(index)}
+                className="group/item relative block border-l-2 border-primary/30 pb-16 pl-8 transition-colors duration-500 hover:border-primary"
+                {...(href
+                    ? { href, target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+            >
+                {children}
+            </Component>
+        </li>
     );
 }
 
@@ -108,23 +110,30 @@ export function Experience() {
     return (
         <section
             id="experience"
+            aria-labelledby="experience-heading"
             className="relative bg-background px-6 py-24 md:px-24"
         >
             <div className="mx-auto max-w-6xl">
                 <div className="mb-16 border-b border-primary pb-4">
-                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2
+                        id="experience-heading"
+                        className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl"
+                    >
                         {t("heading")}
                     </h2>
                 </div>
 
-                <div className="group/list">
+                <ol className="group/list list-none p-0">
                     {experiences.map((exp, index) => (
                         <ExperienceItem
                             key={index}
                             href={exp.href}
                             index={index}
                         >
-                            <motion.div className="absolute top-0 -left-[9px] h-4 w-4 rounded-full border-2 border-primary/30 bg-background transition-all duration-300 group-hover/item:bg-primary" />
+                            <motion.div
+                                aria-hidden="true"
+                                className="absolute top-0 -left-[9px] h-4 w-4 rounded-full border-2 border-primary/30 bg-background transition-all duration-300 group-hover/item:bg-primary"
+                            />
 
                             <div className="grid gap-8 transition-opacity group-hover/item:opacity-100! group-hover/list:opacity-50 md:grid-cols-3 dark:group-hover/list:opacity-30">
                                 <div className="font-mono text-xs tracking-widest uppercase opacity-50 transition-opacity group-hover/item:opacity-100">
@@ -135,7 +144,10 @@ export function Experience() {
                                     <h3 className="mb-1 flex items-center gap-2 text-2xl font-bold uppercase md:text-3xl">
                                         {exp.role}
                                         {exp.href && (
-                                            <ArrowUpRight className="opacity-25 transition-opacity group-hover/item:opacity-100" />
+                                            <ArrowUpRight
+                                                aria-hidden="true"
+                                                className="opacity-25 transition-opacity group-hover/item:opacity-100"
+                                            />
                                         )}
                                     </h3>
                                     <p className="font-mono text-sm uppercase">
@@ -152,7 +164,7 @@ export function Experience() {
                             </div>
                         </ExperienceItem>
                     ))}
-                </div>
+                </ol>
             </div>
         </section>
     );

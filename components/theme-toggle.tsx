@@ -20,6 +20,8 @@ export function ThemeToggle() {
         <button
             type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
+            aria-label={label}
+            aria-pressed={isDark}
             className="pointer-events-auto cursor-pointer text-left text-xs uppercase transition-opacity"
         >
             {label}

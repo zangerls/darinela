@@ -22,18 +22,24 @@
     "Achievements": {
         "heading": "Preise",
         "description": "Von frühen Klavierwettbewerben in Bulgarien bis zu Opernbühnen in ganz Europa ist Darinelas Weg durch eine beständigen Reihe von Preisen und Auszeichnungen internationaler Jurys geprägt. Jede Auszeichnung ist weniger Ziel als Wegmarke - eine Gelegenheit, vor neuem Publikum zu stehen, ihr Können an dem ihrer Kolleginnen und Kollegen zu messen und ihre Stimme ein Stück weiter zu tragen. Eine Auswahl aktueller Höhepunkte finden Sie hier, eine vollständige Liste darunter.",
-        "allAwardsBtn": "Alle Preise"
+        "allAwardsBtn": "Alle Preise",
+        "regionLabel": "Auszeichnungen und Anerkennungen",
+        "listLabel": "Liste der Auszeichnungen"
     },
     "Contact": {
         "heading": "Kontakt",
         "subHeading": "Sagen Sie Hallo!",
         "social": "Soziale Medien",
         "share": "Teilen",
-        "location":  {
+        "location": {
             "basedIn": "Basiert in",
             "city": "Wien",
             "country": "Österreich"
-        }
+        },
+        "emailAria": "E-Mail an {email} senden",
+        "instagramAria": "Darinela auf Instagram besuchen (öffnet in neuem Tab)",
+        "youtubeAria": "Darinela auf YouTube besuchen (öffnet in neuem Tab)",
+        "sharePortfolio": "Link dieser Webseite kopieren"
     },
     "Education": {
         "heading": "Ausbildung"
@@ -47,7 +53,8 @@
             "accent": "im Bild"
         },
         "scrollToPan": "Fortschritt",
-        "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}"
+        "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}",
+        "regionLabel": "Fotogalerie, horizontales Scrollen"
     },
     "Hero": {
         "imageAlt": "Portrait von Darinela Vangelova",
@@ -55,7 +62,11 @@
     },
     "MediaPlayer": {
         "title": "Live in Sofia",
-        "description": "Galakonzert zum Abschluss der 25. internationalen Meisterklasse von Raina Kabaivanska."
+        "description": "Galakonzert zum Abschluss der 25. internationalen Meisterklasse von Raina Kabaivanska.",
+        "teaserTitle": "Video-Vorschau, stummgeschalten",
+        "fullTitle": "Videoplayer",
+        "openLabel": "Vollständiges Video abspielen",
+        "closeLabel": "Video schließen"
     },
     "Metadata": {
         "title": "Darinela Vangelova · Sopranistin",
@@ -79,15 +90,24 @@
         "footer": {
             "bornInBulgaria": "Geboren in Bulgarien",
             "basedInVienna": "Basiert in Wien"
-        }
+        },
+        "primaryLabel": "Hauptnavigation",
+        "mobileMenuLabel": "Hauptmenü",
+        "homeAria": "Darinela Vangelova - zur Startseite",
+        "toggleMenuAria": "Hauptmenü umschalten"
     },
     "Performances": {
         "heading": "Aufzeichnungen",
+        "regionLabel": "Aufzeichnungen",
+        "listLabel": "Liste der Aufzeichnungen",
+        "openRecording": "Aufzeichnung öffnen: {title}, {opera} von {composer}",
+        "seekLabel": "In der Aufzeichnung navigieren",
         "expandedPlayer": {
             "playButton": {
                 "play": "Wiedergeben",
                 "pause": "Pausieren"
-            }
+            },
+            "closeLabel": "Aufzeichnung schließen"
         },
         "scrollProgressBar": {
             "indication": "Fortschritt",
@@ -102,6 +122,11 @@
     },
     "UpcomingPerformances": {
         "heading": "Termine",
-        "indicator": "Sehen Sie Darinela Live"
+        "indicator": "Sehen Sie Darinela Live",
+        "listLabel": "Bevorstehende Auftritte"
+    },
+    "LanguagePicker": {
+        "groupLabel": "Sprache",
+        "selectLanguage": "Sprache wählen: {language}"
     }
 }

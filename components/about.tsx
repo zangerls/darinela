@@ -10,6 +10,7 @@ export function About() {
     return (
         <section
             id="about"
+            aria-labelledby="about-heading"
             className="grid min-h-[80vh] items-center gap-12 overflow-hidden px-6 py-24 md:px-24 lg:grid-cols-2"
         >
             <div className="relative order-2 lg:order-1">
@@ -30,7 +31,10 @@ export function About() {
                     />
                 </motion.div>
 
-                <div className="absolute top-12 -left-12 z-0 hidden h-full w-full border border-primary/30 md:block" />
+                <div
+                    aria-hidden="true"
+                    className="absolute top-12 -left-12 z-0 hidden h-full w-full border border-primary/30 md:block"
+                />
             </div>
 
             <div className="order-1 flex flex-col gap-8 md:pl-12 lg:order-2">
@@ -39,7 +43,10 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl">
+                    <h2
+                        id="about-heading"
+                        className="text-4xl font-semibold tracking-tighter uppercase md:text-6xl"
+                    >
                         {t("headline.line1")} <br />
                         <span className="font-light italic">
                             {t("headline.line2")}
@@ -63,24 +70,24 @@ export function About() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 gap-8 pt-8 font-mono text-xs tracking-widest">
+                <dl className="grid grid-cols-2 gap-8 pt-8 font-mono text-xs tracking-widest">
                     <div>
-                        <h4 className="mb-2 border-b border-primary pb-1 uppercase">
+                        <dt className="mb-2 border-b border-primary pb-1 uppercase">
                             {t("stats.voice.label")}
-                        </h4>
-                        <p className="text-muted-foreground uppercase">
+                        </dt>
+                        <dd className="text-muted-foreground uppercase">
                             {t("stats.voice.value")}
-                        </p>
+                        </dd>
                     </div>
                     <div>
-                        <h4 className="mb-2 border-b border-primary pb-1 uppercase">
+                        <dt className="mb-2 border-b border-primary pb-1 uppercase">
                             {t("stats.studies.label")}
-                        </h4>
-                        <p className="text-muted-foreground uppercase">
+                        </dt>
+                        <dd className="text-muted-foreground uppercase">
                             {t("stats.studies.value")}
-                        </p>
+                        </dd>
                     </div>
-                </div>
+                </dl>
             </div>
         </section>
     );

@@ -29,7 +29,7 @@ export function MediaPlayer() {
     const cursorY = useSpring(0, cursorSpring);
     const cursorOpacity = useSpring(0, cursorSpring);
 
-    const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
         cursorOpacity.set(1);
         const bounds = e.currentTarget.getBoundingClientRect();
         cursorX.set(e.clientX - bounds.left);
@@ -49,32 +49,38 @@ export function MediaPlayer() {
         <>
             <section
                 ref={playerRef}
+                aria-labelledby="media-player-heading"
                 className="relative w-full bg-background py-24"
             >
                 <div className="mx-auto mb-8 max-w-2xl px-6 text-center">
-                    <h2 className="mb-3 text-3xl font-semibold tracking-tight">
+                    <h2
+                        id="media-player-heading"
+                        className="mb-3 text-3xl font-semibold tracking-tight"
+                    >
                         {t("title")}
                     </h2>
-                    <p className="text-muted-foreground">
-                        {t("description")}
-                    </p>
+                    <p className="text-muted-foreground">{t("description")}</p>
                 </div>
                 <div className="flex w-full justify-center">
-                    <motion.div
+                    <motion.button
+                        type="button"
                         style={{ width: playerWidth, aspectRatio: "16 / 9" }}
                         onClick={() => setShowPopOver(true)}
                         onPointerMove={handlePointerMove}
                         onPointerLeave={() => cursorOpacity.set(0)}
+                        aria-label={t("openLabel")}
                         className="relative cursor-none overflow-hidden bg-muted"
                     >
                         <iframe
                             src={teaserSrc}
-                            title="teaser"
+                            title={t("teaserTitle")}
+                            aria-hidden="true"
                             allow="autoplay; encrypted-media; picture-in-picture"
                             tabIndex={-1}
                             className="pointer-events-none absolute inset-0 h-full w-full scale-[1.4]"
                         />
-                        <motion.div
+                        <motion.span
+                            aria-hidden="true"
                             style={{
                                 x: cursorX,
                                 y: cursorY,
@@ -83,8 +89,8 @@ export function MediaPlayer() {
                             className="pointer-events-none absolute top-0 left-0 z-20 flex w-fit items-center gap-2 p-2 text-sm text-white mix-blend-exclusion select-none"
                         >
                             <Play className="size-4 fill-white" /> Play
-                        </motion.div>
-                    </motion.div>
+                        </motion.span>
+                    </motion.button>
                 </div>
             </section>
 
@@ -101,9 +107,16 @@ export function MediaPlayer() {
 }
 
 function VideoPopOver({ src, onClose }: { src: string; onClose: () => void }) {
+    const t = useTranslations("MediaPlayer");
     return (
-        <div className="fixed inset-0 z-[101] flex items-center justify-center">
+        <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={t("fullTitle")}
+            className="fixed inset-0 z-[101] flex items-center justify-center"
+        >
             <motion.div
+                aria-hidden="true"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -138,17 +151,18 @@ function VideoPopOver({ src, onClose }: { src: string; onClose: () => void }) {
             >
                 <iframe
                     src={src}
-                    title="video"
+                    title={t("fullTitle")}
                     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                     allowFullScreen
                     className="absolute inset-0 h-full w-full"
                 />
                 <button
+                    type="button"
                     onClick={onClose}
                     className="absolute -top-10 right-0 z-10 cursor-pointer rounded-full p-1 text-white"
-                    aria-label="Close"
+                    aria-label={t("closeLabel")}
                 >
-                    <Plus className="size-5 rotate-45" />
+                    <Plus aria-hidden="true" className="size-5 rotate-45" />
                 </button>
             </motion.div>
         </div>

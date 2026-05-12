@@ -33,6 +33,7 @@ function FlagAnimation({
             {isPlaying && (
                 <motion.div
                     key={motionKey}
+                    aria-hidden="true"
                     className="pointer-events-none fixed inset-0 z-[200]"
                     onAnimationComplete={cancelAnimation}
                 >
@@ -94,11 +95,15 @@ export function Navbar() {
                 motionKey={flagKey}
                 cancelAnimation={() => setFlagPlaying(false)}
             />
-            <nav className="pointer-events-none fixed inset-0 z-[100] p-6 text-white mix-blend-difference md:p-12">
+            <nav
+                aria-label={t("primaryLabel")}
+                className="pointer-events-none fixed inset-0 z-[100] p-6 text-white mix-blend-difference md:p-12"
+            >
                 <div className="flex h-full flex-col justify-between">
                     <div className="flex items-center justify-between">
                         <a
                             href="/"
+                            aria-label={t("homeAria")}
                             className="pointer-events-auto text-lg font-bold tracking-widest uppercase transition-opacity hover:opacity-70 md:text-xl"
                             onClick={() => setIsOpen(false)}
                         >
@@ -106,15 +111,25 @@ export function Navbar() {
                         </a>
 
                         <button
+                            type="button"
                             onClick={() => setIsOpen(!isOpen)}
+                            aria-expanded={isOpen}
+                            aria-controls="primary-mobile-menu"
+                            aria-label={t("toggleMenuAria")}
                             className="group pointer-events-auto flex cursor-pointer items-center gap-4 font-mono text-sm tracking-widest transition-opacity hover:opacity-70"
                         >
-                            <span className="hidden uppercase md:block">
+                            <span
+                                aria-hidden="true"
+                                className="hidden uppercase md:block"
+                            >
                                 {isOpen
                                     ? t("menuLabel.close")
                                     : t("menuLabel.menu")}
                             </span>
-                            <div className="relative flex h-8 w-8 items-center">
+                            <div
+                                aria-hidden="true"
+                                className="relative flex h-8 w-8 items-center"
+                            >
                                 <motion.div
                                     animate={{
                                         y: isOpen ? 0 : -8,
@@ -180,15 +195,19 @@ export function Navbar() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="primary-mobile-menu"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={t("mobileMenuLabel")}
                         initial={{ clipPath: "circle(0% at 100% 0%)" }}
                         animate={{ clipPath: "circle(150% at 100% 0%)" }}
                         exit={{ clipPath: "circle(0% at 100% 0%)" }}
                         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                         className="fixed inset-0 z-[90] flex items-center justify-center overflow-hidden bg-foreground text-background"
                     >
-                        <div className="relative z-10 flex flex-col items-center gap-5 md:gap-8">
+                        <ul className="relative z-10 flex list-none flex-col items-center gap-5 md:gap-8">
                             {links.map((item, index) => (
-                                <motion.div
+                                <motion.li
                                     key={item.label}
                                     initial={{ y: 100, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -213,11 +232,14 @@ export function Navbar() {
                                             {item.label}
                                         </span>
 
-                                        <span className="absolute top-1/2 left-0 z-20 h-[8px] w-0 -translate-y-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full md:h-[12px]" />
+                                        <span
+                                            aria-hidden="true"
+                                            className="absolute top-1/2 left-0 z-20 h-[8px] w-0 -translate-y-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full md:h-[12px]"
+                                        />
                                     </a>
-                                </motion.div>
+                                </motion.li>
                             ))}
-                        </div>
+                        </ul>
                         <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4 md:hidden">
                             <ThemeToggle />
                             <Separator

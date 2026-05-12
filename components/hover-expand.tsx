@@ -40,8 +40,11 @@ export function HoverExpand({
     const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
     return (
-        <div className={cn("flex w-full flex-col", className)}>
-            <div className="w-full border-t border-current opacity-15" />
+        <ul className={cn("flex w-full list-none flex-col p-0", className)}>
+            <li
+                aria-hidden="true"
+                className="w-full border-t border-current opacity-15"
+            />
 
             {items.map((item, i) => {
                 const isHovered = hoveredIndex === i;
@@ -49,8 +52,8 @@ export function HoverExpand({
 
                 return (
                     <React.Fragment key={i}>
-                        <motion.div
-                            className="relative w-full cursor-default overflow-hidden"
+                        <motion.li
+                            className="relative w-full overflow-hidden"
                             animate={{
                                 height: isHovered
                                     ? expandedHeight
@@ -73,6 +76,13 @@ export function HoverExpand({
                                     prev === i ? null : i
                                 )
                             }
+                            aria-label={[
+                                item.label,
+                                item.sublabel,
+                                item.description,
+                            ]
+                                .filter(Boolean)
+                                .join(" — ")}
                         >
                             <motion.div
                                 className="absolute inset-0 h-full w-full"
@@ -99,7 +109,10 @@ export function HoverExpand({
                                     sizes="100vw"
                                     className="object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+                                <div
+                                    aria-hidden="true"
+                                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"
+                                />
                             </motion.div>
 
                             <div className="absolute inset-0 flex items-end px-5 pb-4">
@@ -169,12 +182,15 @@ export function HoverExpand({
                                     )}
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.li>
 
-                        <div className="w-full border-t border-current opacity-15" />
+                        <li
+                            aria-hidden="true"
+                            className="w-full border-t border-current opacity-15"
+                        />
                     </React.Fragment>
                 );
             })}
-        </div>
+        </ul>
     );
 }
