@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -96,6 +97,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                         <ThemeProvider>{children}</ThemeProvider>
                     </LenisProvider>
                 </NextIntlClientProvider>
+                <Analytics />
             </body>
         </html>
     );
