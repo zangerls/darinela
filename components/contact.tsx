@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 const EMAIL = "vangelova@darinela.com";
-const INSTAGRAM_URL = "https://instagram.com/user";
-const YOUTUBE_URL = "https://youtube.com/@user";
+const INSTAGRAM_URL = "https://www.instagram.com/darinela_vangelova";
+const YOUTUBE_URL = "https://youtube.com/@darinelavangelova268";
 
 export function Contact() {
     const t = useTranslations("Contact");
@@ -39,7 +39,9 @@ export function Contact() {
                         {t("subHeading")}
                     </p>
                     <p className="text-2xl leading-none font-bold tracking-tighter break-all transition-colors duration-300 group-hover:text-primary md:text-6xl">
-                        <span className="italic">{EMAIL.split("@")[0]}</span>
+                        <span className="text-primary">
+                            {EMAIL.split("@")[0]}
+                        </span>
                         <span>@{EMAIL.split("@")[1]}</span>
                     </p>
                 </motion.a>
