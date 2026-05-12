@@ -53,7 +53,7 @@ export function HoverExpand({
                 return (
                     <React.Fragment key={i}>
                         <motion.li
-                            className="relative w-full overflow-hidden"
+                            className="relative w-full overflow-hidden select-none"
                             animate={{
                                 height: isActive
                                     ? expandedHeight
