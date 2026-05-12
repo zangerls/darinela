@@ -26,6 +26,66 @@
         "regionLabel": "Auszeichnungen und Anerkennungen",
         "listLabel": "Liste der Auszeichnungen"
     },
+    "AchievementsPage": {
+        "backToAcclaim": "Zurück zu Preise",
+        "backToAcclaimAria": "Zurück zum Abschnitt Preise",
+        "entriesCount": "{count, plural, =1 {# Eintrag} other {# Einträge}}",
+        "eyebrow": "Die vollständige Liste",
+        "title": "Preise & Auszeichnungen",
+        "intro": "Eine vollständige Aufstellung der Wettbewerbe, Preise und Auszeichnungen, die Darinela im Laufe der Jahre erhalten hat.",
+        "yearAwardsCount": "{count, plural, =1 {# Auszeichnung} other {# Auszeichnungen}}",
+        "onThisPage": "Auf dieser Seite",
+        "yearNavLabel": "Jahresnavigation",
+        "summaryLabel": "Zusammenfassung",
+        "tally": {
+            "awards": "Auszeichnungen",
+            "cities": "Städte",
+            "years": "Jahre"
+        },
+        "prize": {
+            "first": "1. Preis",
+            "second": "2. Preis",
+            "third": "3. Preis",
+            "laureate": "Preisträgerin",
+            "grandPrix": "Grand Prix"
+        },
+        "country": {
+            "austria": "Österreich",
+            "bulgaria": "Bulgarien",
+            "italy": "Italien",
+            "serbia": "Serbien",
+            "slovenia": "Slowenien"
+        },
+        "city": {
+            "vienna": "Wien",
+            "belgrade": "Belgrad",
+            "sofia": "Sofia",
+            "yambol": "Jambol",
+            "burgas": "Burgas",
+            "ragusaSicily": "Ragusa, Sizilien",
+            "ruse": "Russe",
+            "varna": "Warna"
+        },
+        "competition": {
+            "mozartVienna": "International Mozart Competition Vienna",
+            "angelVoiceOnline": "Angel Voice Winners League (Online-Ausgabe)",
+            "balkanRomansiada": "Internationaler Wettbewerb für russische klassische und zeitgenössische Romanze \"Balkan Romansiada\"",
+            "angelVoice": "Internationaler Wettbewerb für klassischen Gesang \"Angel Voice\"",
+            "magic14": "14. Internationaler Wettbewerb für deutsche und österreichische Musik \"MAGIC\"",
+            "futureStars": "2. Internationaler Online-Wettbewerb \"Future Stars\"",
+            "belcanto3": "3. Internationaler Gesangswettbewerb \"Belcanto\"",
+            "varbanVarbanov": "25. Nationaler Wettbewerb für bulgarische Musik \"Varban Varbanov\"",
+            "flyingStage": "3. Internationaler virtueller Wettbewerb \"Flying Stage\"",
+            "hyblaMusic": "Concorso Internazionale di Canto \"Hybla Music\"",
+            "wienMelody": "Internationaler Wettbewerb \"Wien-Melody\"",
+            "tatraOfStars": "Internationaler Wettbewerb \"Tatra of Stars\"",
+            "schubert": "12. Internationaler Wettbewerb \"Franz Schubert\"",
+            "belcanto2": "2. Internationaler Gesangswettbewerb \"Belcanto\"",
+            "artStars": "5. Internationaler Musikwettbewerb \"Art Stars - Stars of Art\"",
+            "magic13": "13. Internationaler Wettbewerb für deutsche und österreichische Musik \"MAGIC\"",
+            "vivaVoce": "2. Internationaler Wettbewerb für Amateure \"Viva Voce\""
+        }
+    },
     "Contact": {
         "heading": "Kontakt",
         "subHeading": "Sagen Sie Hallo!",
