@@ -4,54 +4,53 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
 import { HoverExpand } from "./hover-expand";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 
 type Achievement = {
-    date: string;
+    date: number;
     location: string;
     competition: string;
-    result: string;
+    result: string[];
     image: string;
 };
 
 export function Achievements() {
     const t = useTranslations("Achievements");
+    const tPage = useTranslations("AchievementsPage");
+    const format = useFormatter();
 
     const achievements: Achievement[] = [
         {
-            date: "2025",
-            competition: "Competition 1",
-            location: "Location 1",
-            result: "First Prize",
+            date: 2026,
+            competition: tPage("competitions.imcv"),
+            location: tPage("cities.vienna"),
+            result: [tPage("prizes.first"), tPage("prizes.laureate")],
             image: "/vienna-2.jpg",
         },
         {
-            date: "2025",
-            competition: "Competition 2",
-            location: "Location 2",
-            result: "First Prize",
+            date: 2022,
+            competition: tPage("competitions.angelVoiceOnline"),
+            location: tPage("countries.serbia"),
+            result: [
+                tPage("prizes.first"),
+                tPage("prizes.laureate"),
+                tPage("prizes.grandPrix"),
+            ],
             image: "/belgrade.jpg",
         },
         {
-            date: "2025",
-            competition: "Competition 3",
-            location: "Location 3",
-            result: "First Prize",
-            image: "/vienna.jpg",
+            date: 2021,
+            competition: tPage("competitions.angelVoice"),
+            location: tPage("countries.serbia"),
+            result: [tPage("prizes.first")],
+            image: "/belgrade-3.jpg",
         },
         {
-            date: "2025",
-            competition: "Competition 4",
-            location: "Location 4",
-            result: "First Prize",
-            image: "/ruse.jpg",
-        },
-        {
-            date: "2025",
-            competition: "Competition 5",
-            location: "Location 5",
-            result: "First Prize",
-            image: "/img.webp",
+            date: 2020,
+            competition: tPage("competitions.futureStars"),
+            location: tPage("countries.italy"),
+            result: [tPage("prizes.first")],
+            image: "/italy-1.jpg",
         },
     ];
 
@@ -62,15 +61,15 @@ export function Achievements() {
             className="relative overflow-hidden bg-background px-6 py-24 md:px-24"
         >
             <div className="relative z-10 mx-auto max-w-6xl">
-                <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-                    <div className="h-fit md:sticky lg:top-24">
+                <div className="grid grid-cols-1 gap-16 xl:grid-cols-2">
+                    <div className="h-fit md:sticky xl:top-24">
                         <h2
                             id="acclaim-heading"
                             className="mb-8 text-4xl font-semibold tracking-tighter uppercase sm:text-5xl md:text-6xl"
                         >
                             {t("heading")}
                         </h2>
-                        <p className="mb-4 max-w-lg text-justify font-mono text-sm text-muted-foreground md:text-base">
+                        <p className="mb-4 text-justify font-mono text-sm text-muted-foreground md:text-base">
                             {t("description")}
                         </p>
 
@@ -89,7 +88,7 @@ export function Achievements() {
                             image: x.image,
                             label: x.competition,
                             sublabel: `${x.location}, ${x.date}`,
-                            description: x.result,
+                            description: format.list(x.result),
                         }))}
                     />
 

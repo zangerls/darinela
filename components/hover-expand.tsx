@@ -37,7 +37,7 @@ export function HoverExpand({
     expandedHeight = 320,
     className,
 }: HoverExpandProps) {
-    const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+    const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
     return (
         <ul className={cn("flex w-full list-none flex-col p-0", className)}>
@@ -47,18 +47,18 @@ export function HoverExpand({
             />
 
             {items.map((item, i) => {
-                const isHovered = hoveredIndex === i;
-                const isOtherHovered = hoveredIndex !== null && !isHovered;
+                const isActive = activeIndex === i;
+                const isOtherActive = activeIndex !== null && !isActive;
 
                 return (
                     <React.Fragment key={i}>
                         <motion.li
                             className="relative w-full overflow-hidden"
                             animate={{
-                                height: isHovered
+                                height: isActive
                                     ? expandedHeight
                                     : collapsedHeight,
-                                opacity: isOtherHovered ? 0.38 : 1,
+                                opacity: isOtherActive ? 0.38 : 1,
                             }}
                             transition={{
                                 height: {
@@ -69,10 +69,10 @@ export function HoverExpand({
                                 },
                                 opacity: { duration: 0.22, ease: "easeOut" },
                             }}
-                            onHoverStart={() => setHoveredIndex(i)}
-                            onHoverEnd={() => setHoveredIndex(null)}
+                            onHoverStart={() => setActiveIndex(i)}
+                            onHoverEnd={() => setActiveIndex(null)}
                             onClick={() =>
-                                setHoveredIndex((prev) =>
+                                setActiveIndex((prev) =>
                                     prev === i ? null : i
                                 )
                             }
@@ -88,8 +88,8 @@ export function HoverExpand({
                                 className="absolute inset-0 h-full w-full"
                                 initial={false}
                                 animate={{
-                                    opacity: isHovered ? 1 : 0,
-                                    scale: isHovered ? 1 : 1.06,
+                                    opacity: isActive ? 1 : 0,
+                                    scale: isActive ? 1 : 1.06,
                                 }}
                                 transition={{
                                     opacity: {
@@ -106,25 +106,65 @@ export function HoverExpand({
                                     src={item.image}
                                     alt={item.imageAlt ?? ""}
                                     fill
-                                    sizes="100vw"
+                                    sizes="(min-width: 1280px) 576px, (min-width: 768px) calc(100vw - 12rem), 100vw"
                                     className="object-cover"
                                 />
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"
+                                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30"
                                 />
                             </motion.div>
+
+                            {(item.sublabel || item.description) &&
+                                isActive && (
+                                    <div className="pointer-events-none absolute inset-x-0 top-0 flex flex-col items-end gap-1 px-5 pt-4">
+                                        {item.sublabel && (
+                                            <motion.span
+                                                layoutId={`sublabel-${i}`}
+                                                className="shrink-0 font-mono text-xs tracking-wide text-white uppercase"
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{
+                                                    layout: {
+                                                        type: "spring",
+                                                        stiffness: 280,
+                                                        damping: 32,
+                                                        mass: 0.9,
+                                                    },
+                                                    opacity: { duration: 0.2 },
+                                                }}
+                                            >
+                                                {item.sublabel}
+                                            </motion.span>
+                                        )}
+                                        {item.description && (
+                                            <motion.span
+                                                className="truncate font-mono text-xs text-white uppercase"
+                                                initial={{ opacity: 0, x: 8 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: 8 }}
+                                                transition={{
+                                                    duration: 0.3,
+                                                    delay: 0.12,
+                                                    ease: [0.23, 1, 0.32, 1],
+                                                }}
+                                            >
+                                                {item.description}
+                                            </motion.span>
+                                        )}
+                                    </div>
+                                )}
 
                             <div className="absolute inset-0 flex items-end px-5 pb-4">
                                 <div className="flex w-full items-center justify-between gap-4">
                                     <div className="flex min-w-0 items-center gap-3">
                                         <motion.span
-                                            className="shrink-0 font-mono text-xs tabular-nums opacity-40"
+                                            className="hidden shrink-0 font-mono text-xs tabular-nums opacity-40 md:block"
                                             animate={{
-                                                color: isHovered
+                                                color: isActive
                                                     ? "#ffffff"
                                                     : "currentColor",
-                                                opacity: isHovered ? 0.5 : 0.4,
+                                                opacity: isActive ? 1 : 0.4,
                                             }}
                                             transition={{ duration: 0.2 }}
                                         >
@@ -132,13 +172,13 @@ export function HoverExpand({
                                         </motion.span>
 
                                         <motion.span
-                                            className="truncate font-semibold tracking-tight"
-                                            style={{
-                                                fontSize:
-                                                    "clamp(1.1rem, 2.2vw, 1.5rem)",
-                                            }}
+                                            className={cn(
+                                                "text-md truncate font-semibold tracking-tight sm:text-lg md:text-xl",
+                                                isActive &&
+                                                    "overflow-visible text-clip whitespace-normal"
+                                            )}
                                             animate={{
-                                                color: isHovered
+                                                color: isActive
                                                     ? "#ffffff"
                                                     : "currentColor",
                                             }}
@@ -146,36 +186,23 @@ export function HoverExpand({
                                         >
                                             {item.label}
                                         </motion.span>
-
-                                        {item.description && (
-                                            <motion.span
-                                                className="hidden truncate font-mono text-sm text-white/70 sm:block"
-                                                initial={{ opacity: 0, x: -8 }}
-                                                animate={{
-                                                    opacity: isHovered ? 1 : 0,
-                                                    x: isHovered ? 0 : -8,
-                                                }}
-                                                transition={{
-                                                    duration: 0.3,
-                                                    delay: isHovered ? 0.12 : 0,
-                                                    ease: [0.23, 1, 0.32, 1],
-                                                }}
-                                            >
-                                                — {item.description}
-                                            </motion.span>
-                                        )}
                                     </div>
 
-                                    {item.sublabel && (
+                                    {item.sublabel && !isActive && (
                                         <motion.span
-                                            className="shrink-0 font-mono text-xs tracking-widest uppercase"
-                                            animate={{
-                                                color: isHovered
-                                                    ? "rgba(255,255,255,0.55)"
-                                                    : "currentColor",
-                                                opacity: isHovered ? 1 : 0.45,
+                                            layoutId={`sublabel-${i}`}
+                                            className="shrink-0 font-mono text-xs tracking-wide uppercase"
+                                            initial={{ opacity: 0.45 }}
+                                            animate={{ opacity: 0.45 }}
+                                            transition={{
+                                                layout: {
+                                                    type: "spring",
+                                                    stiffness: 280,
+                                                    damping: 32,
+                                                    mass: 0.9,
+                                                },
+                                                opacity: { duration: 0.2 },
                                             }}
-                                            transition={{ duration: 0.2 }}
                                         >
                                             {item.sublabel}
                                         </motion.span>
