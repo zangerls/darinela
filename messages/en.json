@@ -263,7 +263,21 @@
     "UpcomingPerformances": {
         "heading": "Upcoming Performances",
         "indicator": "See Darinela live",
-        "listLabel": "Upcoming performances"
+        "listLabel": "Upcoming performances",
+        "upcoming": {
+            "20260518": {
+                "program": "Class recital",
+                "venue": "Ehrbar Saal",
+                "location": "Vienna",
+                "role": "Soloist"
+            },
+            "20260521": {
+                "program": "Solo concert",
+                "venue": "Fortuna Wohnpark",
+                "location": "Vienna",
+                "role": "Soloist"
+            }
+        }
     },
     "LanguagePicker": {
         "groupLabel": "Language",

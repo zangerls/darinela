@@ -263,7 +263,21 @@
     "UpcomingPerformances": {
         "heading": "Termine",
         "indicator": "Sehen Sie Darinela Live",
-        "listLabel": "Bevorstehende Auftritte"
+        "listLabel": "Bevorstehende Auftritte",
+        "upcoming": {
+            "20260518": {
+                "program": "Klassenabend",
+                "venue": "Ehrbar Saal",
+                "location": "Wien",
+                "role": "Solist"
+            },
+            "20260521": {
+                "program": "Solokonzert",
+                "venue": "Fortuna Wohnpark",
+                "location": "Wien",
+                "role": "Solist"
+            }
+        }
     },
     "LanguagePicker": {
         "groupLabel": "Sprache",
