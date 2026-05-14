@@ -102,7 +102,27 @@
         "sharePortfolio": "Copy the link of this website"
     },
     "Education": {
-        "heading": "Education"
+        "heading": "Education",
+        "schools": {
+            "vecchiTonelli": {
+                "instiution": "Conservatorio di musica \"Vecchi Tonelli\" (scholarship)",
+                "location": "Modena, Italy",
+                "year": "2025",
+                "focus": "Classical singing (belcanto)"
+            },
+            "mdw": {
+                "instiution": "University of Music and Performing Arts",
+                "location": "Vienna, Austria",
+                "year": "2022 - Present",
+                "focus": "Classical singing"
+            },
+            "pancho": {
+                "instiution": "National School of Music and Performing Arts \"Prof. Pancho Vladigerov\"",
+                "location": "Burgas, Bulgaria",
+                "year": "2014 - 2022",
+                "focus": "Piano, classical singing"
+            }
+        }
     },
     "Experience": {
         "heading": "Professional Experience"

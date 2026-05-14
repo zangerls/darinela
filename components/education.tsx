@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 type Education = {
     year: string;
-    degree: string;
     institution: string;
     location: string;
     focus: string;
@@ -17,28 +16,25 @@ export function Education() {
 
     const education: Education[] = [
         {
-            year: "2024 - 2026",
-            degree: "Degree 1",
-            institution: "Institution 1",
-            location: "Location 1",
-            focus: "Focus A, Focus B, Focus C",
-            href: "https://google.com",
+            year: t("schools.mdw.year"),
+            institution: t("schools.mdw.instiution"),
+            location: t("schools.mdw.location"),
+            focus: t("schools.mdw.focus"),
+            href: "https://www.mdw.ac.at/",
         },
         {
-            year: "2024 - 2026",
-            degree: "Degree 2",
-            institution: "Institution 2",
-            location: "Location 2",
-            focus: "Focus A, Focus B, Focus C",
-            href: "https://google.com",
+            year: t("schools.vecchiTonelli.year"),
+            institution: t("schools.vecchiTonelli.instiution"),
+            location: t("schools.vecchiTonelli.location"),
+            focus: t("schools.vecchiTonelli.focus"),
+            href: "https://www.vecchitonelli.it/",
         },
         {
-            year: "2024 - 2026",
-            degree: "Degree 3",
-            institution: "Institution 3",
-            location: "Location 3",
-            focus: "Focus A, Focus B, Focus C",
-            href: "https://google.com",
+            year: t("schools.pancho.year"),
+            institution: t("schools.pancho.instiution"),
+            location: t("schools.pancho.location"),
+            focus: t("schools.pancho.focus"),
+            href: "https://nma.bg/en/",
         },
     ];
 
@@ -87,17 +83,12 @@ export function Education() {
                                 </div>
 
                                 <h3 className="mb-2 text-xl font-bold uppercase md:text-2xl">
-                                    {edu.degree}
+                                    {edu.institution}
                                 </h3>
 
-                                <div className="mb-4 font-mono text-sm">
-                                    <p className="font-bold uppercase">
-                                        {edu.institution}
-                                    </p>
-                                    <p className="font-mono text-xs tracking-widest uppercase opacity-60">
-                                        {edu.location}
-                                    </p>
-                                </div>
+                                <p className="mb-4 font-mono text-sm text-xs tracking-widest uppercase opacity-60">
+                                    {edu.location}
+                                </p>
 
                                 <p className="font-mono text-sm text-muted-foreground italic">
                                     {edu.focus}
