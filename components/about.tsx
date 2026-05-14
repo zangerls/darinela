@@ -23,7 +23,7 @@ export function About() {
                 >
                     <Image
                         src="/IMG_1968.jpeg"
-                        alt="Portrait of Darinela Vangelova"
+                        alt={t("imageAlt")}
                         width={960}
                         height={1440}
                         sizes="(min-width: 1024px) 50vw, 100vw"
