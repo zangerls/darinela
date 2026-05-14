@@ -319,11 +319,12 @@ function ExpandedPlayer({
                             aria-valuemin={0}
                             aria-valuemax={100}
                             aria-valuenow={Math.round(progress * 100)}
-                            className="relative h-[2px] w-full cursor-pointer bg-border"
+                            className="-mt-3 w-full cursor-pointer py-3"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                const rect =
-                                    e.currentTarget.getBoundingClientRect();
+                                const rect = e.currentTarget
+                                    .querySelector("[data-track]")!
+                                    .getBoundingClientRect();
                                 seek((e.clientX - rect.left) / rect.width);
                             }}
                             onKeyDown={(e) => {
@@ -336,14 +337,19 @@ function ExpandedPlayer({
                                 }
                             }}
                         >
-                            <motion.div
-                                aria-hidden="true"
-                                className="absolute inset-y-0 left-0 bg-primary"
-                                style={{ width: `${progress * 100}%` }}
-                            />
+                            <div
+                                data-track
+                                className="relative h-[2px] w-full bg-border"
+                            >
+                                <motion.div
+                                    aria-hidden="true"
+                                    className="absolute inset-y-0 left-0 bg-primary"
+                                    style={{ width: `${progress * 100}%` }}
+                                />
+                            </div>
                         </div>
 
-                        <div className="flex justify-center">
+                        <div className="-mt-3 flex justify-center">
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
