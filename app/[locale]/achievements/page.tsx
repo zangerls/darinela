@@ -31,6 +31,7 @@ export async function generateMetadata({
         alternates: {
             canonical: `/${locale}/achievements`,
             languages: {
+                "x-default": "/en/achievements",
                 en: "/en/achievements",
                 de: "/de/achievements",
                 bg: "/bg/achievements",
