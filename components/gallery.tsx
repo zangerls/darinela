@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
@@ -45,7 +45,7 @@ export function Gallery() {
     const t = useTranslations("Gallery");
     const trackRef = useRef<HTMLDivElement | null>(null);
     const sectionRef = useRef<HTMLDivElement | null>(null);
-    const [progress, setProgress] = useState<number>(0);
+    const progressRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         let vh = window.innerHeight;
@@ -68,10 +68,13 @@ export function Gallery() {
 
             const scrolled = Math.min(Math.max(-rect.top, 0), total);
             const p = total > 0 ? scrolled / total : 0;
-            setProgress(p);
 
             const maxTranslate = Math.max(0, trackWidth - vw + 48);
             track.style.transform = `translate3d(-${p * maxTranslate}px, 0, 0)`;
+
+            if (progressRef.current) {
+                progressRef.current.style.width = `${p * 100}%`;
+            }
         };
 
         const onResize = () => {
@@ -172,8 +175,8 @@ export function Gallery() {
                 <div className="mx-auto w-full px-6 pt-10 pb-6 md:px-52 md:pb-12">
                     <div className="relative h-px w-full overflow-hidden bg-border">
                         <div
-                            className="absolute top-0 left-0 h-px bg-primary"
-                            style={{ width: `${progress * 100}%` }}
+                            ref={progressRef}
+                            className="absolute top-0 left-0 h-px w-0 bg-primary"
                         />
                     </div>
                     <div className="tracking-wider-2 mt-3 flex items-center justify-between text-[0.65rem] text-muted-foreground uppercase">
