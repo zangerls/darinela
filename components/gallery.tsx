@@ -22,7 +22,7 @@ const slides: Slide[] = [
         tall: true,
     },
     {
-        src: "/IMG_2024.jpeg",
+        src: "/IMG_1799.jpeg",
         year: 2025,
     },
     {
