@@ -95,11 +95,10 @@ export function Gallery() {
         <section
             id="gallery"
             ref={sectionRef}
-            className="relative border-t border-border bg-background"
-            style={{ height: "320svh" }}
+            className="relative h-[320vh] border-t border-border bg-background [@supports(height:320svh)]:h-[320svh]"
             aria-labelledby="gallery-heading"
         >
-            <div className="sticky top-0 flex h-svh flex-col overflow-hidden">
+            <div className="sticky top-0 flex h-screen flex-col overflow-hidden [@supports(height:100svh)]:h-svh">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-8 md:px-10 md:pt-28">
                     <h2
                         id="gallery-heading"

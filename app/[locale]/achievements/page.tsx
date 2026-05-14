@@ -211,7 +211,7 @@ export default function AchievementsPage() {
     }
 
     return (
-        <div className="min-h-dvh bg-background text-foreground selection:bg-black selection:text-white">
+        <div className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white [@supports(min-height:100dvh)]:min-h-dvh">
             <div className="sticky top-0 z-30 border-b border-primary/10 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-24">
                     <Link

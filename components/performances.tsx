@@ -495,12 +495,11 @@ export function Performances() {
             id="performances"
             ref={sectionRef}
             aria-label={t("regionLabel")}
-            className="relative bg-background"
-            style={{ height: "200svh" }}
+            className="relative h-[200vh] bg-background [@supports(height:200svh)]:h-[200svh]"
         >
             <motion.div
                 layoutScroll
-                className="sticky top-0 h-svh overflow-hidden"
+                className="sticky top-0 h-screen overflow-hidden [@supports(height:100svh)]:h-svh"
                 style={{ transform: "translateZ(0)", willChange: "transform" }}
                 onClick={() => {
                     if (expandedId !== null) setExpandedId(null);

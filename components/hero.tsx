@@ -44,7 +44,7 @@ export function Hero() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             aria-labelledby="hero-name"
-            className="relative flex h-dvh min-h-[500px] items-center justify-center overflow-hidden bg-background"
+            className="relative flex h-screen min-h-[500px] items-center justify-center overflow-hidden bg-background [@supports(height:100dvh)]:h-dvh"
         >
             <motion.div
                 style={{
