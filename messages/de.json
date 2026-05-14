@@ -125,7 +125,44 @@
         }
     },
     "Experience": {
-        "heading": "Professionelle Erfahrung"
+        "heading": "Professionelle Erfahrung",
+        "experiences": {
+            "liveMusicNow": {
+                "date": "2025 - Heute",
+                "role": "Solist",
+                "venue": "Verschiedene",
+                "location": "Wien",
+                "description": "Klavier-unterstützte Auftritte für benachteiligte Kinder, Senioren und weiteres Publikum mit \"Live Music Now von Lord Yehudi Menuhin\""
+            },
+            "hanselAndGretel": {
+                "date": "2025",
+                "role": "Sandmann & Taumann",
+                "venue": "Schlosstheater Schönbrunn",
+                "location": "Wien",
+                "description": "Bühnenauftritte in Engelbert Humperdinck's Hänsel & Gretel"
+            },
+            "rainaKabaivanska": {
+                "date": "2025",
+                "role": "Solist",
+                "venue": "Opern- und Ballett-Theater Sofia",
+                "location": "Sofia",
+                "description": "Galakonzert der 25. internationalen Meisterklasse von Raina Kabaivanska"
+            },
+            "youngTalentsNewAcademy": {
+                "date": "2022 - Heute",
+                "role": "Solist",
+                "venue": "Verschiedene",
+                "location": "Brüssel",
+                "description": "Auftritte für Brüssel-basierte Organisation \"Young Talents New Academy\""
+            },
+            "idomeneo": {
+                "date": "2023",
+                "role": "Chor",
+                "venue": "Schlosstheater Schönbrunn",
+                "location": "Wien",
+                "description": "Produktion von Mozart's \"Idomeneo\" der Universität für Musik und darstellende Kunst Wien"
+            }
+        }
     },
     "Gallery": {
         "headline": {

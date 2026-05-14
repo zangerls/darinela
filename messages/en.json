@@ -125,7 +125,44 @@
         }
     },
     "Experience": {
-        "heading": "Professional Experience"
+        "heading": "Professional Experience",
+        "experiences": {
+            "liveMusicNow": {
+                "date": "2025 - Present",
+                "role": "Soloist",
+                "venue": "Various",
+                "location": "Vienna",
+                "description": "Piano-backed performances for disadvantaged children, the elderly and other audiences through \"Live Music Now by Lord Yehudi Menuhin\""
+            },
+            "hanselAndGretel": {
+                "date": "2025",
+                "role": "Sandman & Dewman",
+                "venue": "Schlosstheater Schönbrunn",
+                "location": "Vienna",
+                "description": "Stage performances in Engelbert Humperdinck's Hänsel & Gretel"
+            },
+            "rainaKabaivanska": {
+                "date": "2025",
+                "role": "Soloist",
+                "venue": "Sofia Opera and Ballet",
+                "location": "Sofia",
+                "description": "Gala concert for the 25th international masterclass of Raina Kabaivanska"
+            },
+            "youngTalentsNewAcademy": {
+                "date": "2022 - Present",
+                "role": "Soloist",
+                "venue": "Various",
+                "location": "Brussels",
+                "description": "Performances for Brussels-based organization \"Young Talents New Academy\""
+            },
+            "idomeneo": {
+                "date": "2023",
+                "role": "Choir",
+                "venue": "Schlosstheater Schönbrunn",
+                "location": "Vienna",
+                "description": "Production of Mozart's \"Idomeneo\" by the University of Music and performing Arts Vienna"
+            }
+        }
     },
     "Gallery": {
         "headline": {

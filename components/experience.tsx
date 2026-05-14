@@ -55,55 +55,41 @@ export function Experience() {
 
     const experiences: Experience[] = [
         {
-            year: "2026",
-            role: "Role 1",
-            venue: "Venue 1",
-            location: "Location 1",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
-            href: "https://google.com",
+            year: t("experiences.liveMusicNow.date"),
+            role: t("experiences.liveMusicNow.role"),
+            venue: t("experiences.liveMusicNow.venue"),
+            location: t("experiences.liveMusicNow.location"),
+            details: t("experiences.liveMusicNow.description"),
+            href: "https://livemusicnow-wien.at/",
         },
         {
-            year: "2025",
-            role: "Role 2",
-            venue: "Venue 2",
-            location: "Location 2",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
-        },
-
-        {
-            year: "2024",
-            role: "Role 3",
-            venue: "Venue 3",
-            location: "Location 3",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
-        },
-
-        {
-            year: "2024",
-            role: "Role 4",
-            venue: "Venue 4",
-            location: "Location 4",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
+            year: t("experiences.hanselAndGretel.date"),
+            role: t("experiences.hanselAndGretel.role"),
+            venue: t("experiences.hanselAndGretel.venue"),
+            location: t("experiences.hanselAndGretel.location"),
+            details: t("experiences.hanselAndGretel.description"),
         },
         {
-            year: "2023",
-            role: "Role 5",
-            venue: "Venue 5",
-            location: "Location 5",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
+            year: t("experiences.rainaKabaivanska.date"),
+            role: t("experiences.rainaKabaivanska.role"),
+            venue: t("experiences.rainaKabaivanska.venue"),
+            location: t("experiences.rainaKabaivanska.location"),
+            details: t("experiences.rainaKabaivanska.description"),
+            href: "https://rainakabaivanska.net/en/news/xxv-international-masterclass-of-raina-kabaivanska",
         },
         {
-            year: "2022",
-            role: "Role 6",
-            venue: "Venue 6",
-            location: "Location 6",
-            details:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor efficitur leo quis molestie.",
+            year: t("experiences.youngTalentsNewAcademy.date"),
+            role: t("experiences.youngTalentsNewAcademy.role"),
+            venue: t("experiences.youngTalentsNewAcademy.venue"),
+            location: t("experiences.youngTalentsNewAcademy.location"),
+            details: t("experiences.youngTalentsNewAcademy.description"),
+        },
+        {
+            year: t("experiences.idomeneo.date"),
+            role: t("experiences.idomeneo.role"),
+            venue: t("experiences.idomeneo.venue"),
+            location: t("experiences.idomeneo.location"),
+            details: t("experiences.idomeneo.description"),
         },
     ];
 
@@ -135,12 +121,12 @@ export function Experience() {
                                 className="absolute top-0 -left-[9px] h-4 w-4 rounded-full border-2 border-primary/30 bg-background transition-all duration-300 group-hover/item:bg-primary"
                             />
 
-                            <div className="grid gap-8 transition-opacity group-hover/item:opacity-100! group-hover/list:opacity-50 md:grid-cols-3 dark:group-hover/list:opacity-30">
-                                <div className="font-mono text-xs tracking-widest uppercase opacity-50 transition-opacity group-hover/item:opacity-100">
+                            <div className="grid gap-8 transition-opacity group-hover/item:opacity-100! group-hover/list:opacity-50 md:grid-cols-5 dark:group-hover/list:opacity-30">
+                                <div className="font-mono text-xs tracking-widest uppercase opacity-50 transition-opacity group-hover/item:opacity-100 md:col-span-1">
                                     {exp.year}
                                 </div>
 
-                                <div>
+                                <div className="md:col-span-2">
                                     <h3 className="mb-1 flex items-center gap-2 text-2xl font-bold uppercase md:text-3xl">
                                         {exp.role}
                                         {exp.href && (
@@ -158,7 +144,7 @@ export function Experience() {
                                     </p>
                                 </div>
 
-                                <div className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover/item:text-foreground">
+                                <div className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover/item:text-foreground md:col-span-2">
                                     {exp.details}
                                 </div>
                             </div>
