@@ -296,7 +296,7 @@ function ExpandedPlayer({
                     >
                         <Image
                             src={perf.image}
-                            alt={perf.title}
+                            alt=""
                             fill
                             sizes="(min-width: 768px) 672px, 60vw"
                             className="object-cover"
@@ -526,7 +526,7 @@ export function Performances() {
                             >
                                 <Image
                                     src={activePerf.image}
-                                    alt={activePerf.title}
+                                    alt=""
                                     fill
                                     sizes="(min-width: 1024px) 384px, (min-width: 768px) 288px, (min-width: 640px) 224px, 168px"
                                     className="object-cover"
