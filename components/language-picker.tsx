@@ -35,7 +35,7 @@ export function LanguagePicker() {
         <div
             role="group"
             aria-label={t("groupLabel")}
-            className="flex gap-3 uppercase"
+            className="flex uppercase md:gap-3"
         >
             {routing.locales.map((l) => {
                 const isActive = l === locale;
@@ -51,7 +51,7 @@ export function LanguagePicker() {
                             language: LANGUAGE_NAMES[l],
                         })}
                         className={cn(
-                            "pointer-events-auto cursor-pointer text-xs uppercase transition-opacity hover:opacity-100",
+                            "pointer-events-auto cursor-pointer px-2 text-xs uppercase transition-opacity hover:opacity-100 md:px-0",
                             isActive ? "opacity-100" : "opacity-50"
                         )}
                     >
