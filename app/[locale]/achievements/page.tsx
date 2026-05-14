@@ -4,7 +4,61 @@ import { Link } from "@/i18n/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { hasLocale, type Locale } from "next-intl";
 import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
 import { YearNav } from "./year-nav";
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale: rawLocale } = await params;
+    const locale = (
+        hasLocale(routing.locales, rawLocale)
+            ? rawLocale
+            : routing.defaultLocale
+    ) as Locale;
+
+    const t = await getTranslations({ locale, namespace: "AchievementsPage" });
+    const tMeta = await getTranslations({ locale, namespace: "Metadata" });
+
+    const title = `${t("title")} · ${tMeta("title")}`;
+    const description = t("intro");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/achievements`,
+            languages: {
+                en: "/en/achievements",
+                de: "/de/achievements",
+                bg: "/bg/achievements",
+            },
+        },
+        openGraph: {
+            title,
+            description,
+            url: `https://darinela.com/${locale}/achievements`,
+            siteName: "Darinela Vangelova",
+            locale,
+            type: "website",
+            images: [
+                {
+                    url: "https://darinela.com/og.png",
+                    width: 1200,
+                    height: 630,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: ["https://darinela.com/og.png"],
+        },
+    };
+}
 
 type Achievement = {
     competition: string;
