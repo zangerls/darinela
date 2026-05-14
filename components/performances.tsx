@@ -263,7 +263,7 @@ function ExpandedPlayer({
                     >
                         <h3
                             id={`recording-title-${perf.id}`}
-                            className="text-4xl leading-none font-bold uppercase md:text-6xl"
+                            className="text-2xl leading-none font-bold uppercase md:text-4xl lg:text-6xl"
                         >
                             {perf.title}
                         </h3>
