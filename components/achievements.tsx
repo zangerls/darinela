@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
+import { Link } from "@/i18n/navigation";
 import { HoverExpand } from "./hover-expand";
 import { useFormatter, useTranslations } from "next-intl";
 
