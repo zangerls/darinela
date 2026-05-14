@@ -180,7 +180,7 @@ function useAudioPlayer(src: string) {
         if (!src) return;
 
         const audio = new Audio(src);
-        audio.preload = "none";
+        audio.preload = "metadata";
         audio.crossOrigin = "anonymous";
         audioRef.current = audio;
 
@@ -198,17 +198,23 @@ function useAudioPlayer(src: string) {
         };
     }, [src]);
 
-    const toggle = useCallback(() => {
+    const toggle = useCallback(async () => {
         const audio = audioRef.current;
         if (!audio) return;
 
         if (isPlaying) {
             audio.pause();
-        } else {
-            ensureAnalyser(audio);
-            audio.play();
+            setIsPlaying(false);
+            return;
         }
-        setIsPlaying((p) => !p);
+
+        ensureAnalyser(audio);
+        try {
+            await audio.play();
+            setIsPlaying(true);
+        } catch {
+            setIsPlaying(false);
+        }
     }, [isPlaying]);
 
     const seek = useCallback((fraction: number) => {
