@@ -132,6 +132,7 @@
             "lead": "Zwischen den Arien",
             "accent": "im Bild"
         },
+        "imageAlt":"Portrait von Darinela Vangelova",
         "scrollToPan": "Fortschritt",
         "nSlides": "{count, plural, =0 {Keine Fotos} =1 {Ein Foto} other {# Fotos}}",
         "regionLabel": "Fotogalerie, horizontales Scrollen"

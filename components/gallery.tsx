@@ -7,8 +7,6 @@ import { useTranslations } from "next-intl";
 
 type Slide = {
     src: string;
-    caption: string;
-    place: string;
     year: string;
     tall?: boolean;
 };
@@ -16,40 +14,28 @@ type Slide = {
 const slides: Slide[] = [
     {
         src: "/IMG_1719.jpeg",
-        caption: "Caption 1",
-        place: "Place 1",
         year: "2025",
     },
     {
         src: "/IMG_1747.jpeg",
-        caption: "Caption 2",
-        place: "Place 2",
         year: "2024",
         tall: true,
     },
     {
         src: "/IMG_1782.jpeg",
-        caption: "Caption 3",
-        place: "Place 3",
         year: "2024",
     },
     {
         src: "/IMG_1840.jpeg",
-        caption: "Caption 4",
-        place: "Place 4",
         year: "2023",
         tall: true,
     },
     {
         src: "/IMG_2024.jpeg",
-        caption: "Caption 5",
-        place: "Place 5",
         year: "2023",
     },
     {
         src: "/IMG_2243.jpeg",
-        caption: "Caption 6",
-        place: "Place 6",
         year: "2024",
         tall: true,
     },
@@ -124,7 +110,7 @@ export function Gallery() {
                             <figure
                                 key={s.src}
                                 className={cn(
-                                    "group relative shrink-0",
+                                    "group relative flex h-full shrink-0 items-center",
                                     s.tall
                                         ? "w-[62vw] md:w-[44vw] lg:w-[32vw]"
                                         : "w-[78vw] md:w-[58vw] lg:w-[46vw]"
@@ -132,15 +118,15 @@ export function Gallery() {
                             >
                                 <div
                                     className={cn(
-                                        "relative w-full overflow-hidden",
+                                        "relative max-h-full w-full overflow-hidden",
                                         s.tall
                                             ? "aspect-[3/4]"
                                             : "aspect-[16/10]"
                                     )}
                                 >
                                     <Image
-                                        src={s.src || "/placeholder.svg"}
-                                        alt={s.caption}
+                                        src={s.src}
+                                        alt={t("imageAlt")}
                                         fill
                                         sizes={
                                             s.tall
@@ -161,14 +147,6 @@ export function Gallery() {
                                         <span>{s.year}</span>
                                     </div>
                                 </div>
-                                <figcaption className="mt-4 flex items-start justify-between gap-6 text-sm">
-                                    <span className="text-xl leading-tight italic">
-                                        {s.caption}
-                                    </span>
-                                    <span className="tracking-wider-2 max-w-[18ch] shrink-0 text-right text-[0.65rem] text-muted-foreground uppercase">
-                                        {s.place}
-                                    </span>
-                                </figcaption>
                             </figure>
                         ))}
 
