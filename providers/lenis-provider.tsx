@@ -29,14 +29,16 @@ export function LenisProvider({ children }: { children: ReactNode }) {
 
         setLenis(instance);
 
+        let rafId = 0;
         function raf(time: number) {
             instance.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
 
         return () => {
+            cancelAnimationFrame(rafId);
             instance.destroy();
             setLenis(null);
         };
