@@ -1,23 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { getFormatter, getTranslations } from "next-intl/server";
+import {
+    getFormatter,
+    getTranslations,
+    setRequestLocale,
+} from "next-intl/server";
 import { hasLocale, type Locale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { YearNav } from "./year-nav";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
     params,
 }: {
     params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-    const { locale: rawLocale } = await params;
-    const locale = (
-        hasLocale(routing.locales, rawLocale)
-            ? rawLocale
-            : routing.defaultLocale
-    ) as Locale;
+    const { locale } = await params;
+    if (!hasLocale(routing.locales, locale)) notFound();
+
+    setRequestLocale(locale);
 
     const t = await getTranslations({ locale, namespace: "AchievementsPage" });
     const tMeta = await getTranslations({ locale, namespace: "Metadata" });
