@@ -7,36 +7,36 @@ import { useTranslations } from "next-intl";
 
 type Slide = {
     src: string;
-    year: string;
+    year: number;
     tall?: boolean;
 };
 
 const slides: Slide[] = [
     {
         src: "/IMG_1719.jpeg",
-        year: "2025",
+        year: 2025,
     },
     {
         src: "/IMG_1747.jpeg",
-        year: "2024",
+        year: 2025,
         tall: true,
     },
     {
         src: "/IMG_1782.jpeg",
-        year: "2024",
+        year: 2025,
     },
     {
         src: "/IMG_1840.jpeg",
-        year: "2023",
+        year: 2025,
         tall: true,
     },
     {
         src: "/IMG_2024.jpeg",
-        year: "2023",
+        year: 2025,
     },
     {
         src: "/IMG_2243.jpeg",
-        year: "2024",
+        year: 2025,
         tall: true,
     },
 ];
