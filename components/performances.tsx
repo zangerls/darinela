@@ -180,6 +180,7 @@ function useAudioPlayer(src: string) {
         if (!src) return;
 
         const audio = new Audio(src);
+        audio.preload = "none";
         audio.crossOrigin = "anonymous";
         audioRef.current = audio;
 
