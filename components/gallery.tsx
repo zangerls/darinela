@@ -22,20 +22,20 @@ const slides: Slide[] = [
         tall: true,
     },
     {
-        src: "/IMG_1782.jpeg",
-        year: 2025,
-    },
-    {
-        src: "/IMG_1840.jpeg",
-        year: 2025,
-        tall: true,
-    },
-    {
         src: "/IMG_2024.jpeg",
         year: 2025,
     },
     {
-        src: "/IMG_2243.jpeg",
+        src: "/IMG_1910.jpeg",
+        year: 2025,
+        tall: true,
+    },
+    {
+        src: "/IMG_2048.jpeg",
+        year: 2025,
+    },
+    {
+        src: "/IMG_1883.jpeg",
         year: 2025,
         tall: true,
     },
@@ -146,7 +146,10 @@ export function Gallery() {
                                                 ? "(min-width: 1024px) 32vw, (min-width: 768px) 44vw, 62vw"
                                                 : "(min-width: 1024px) 46vw, (min-width: 768px) 58vw, 78vw"
                                         }
-                                        className="object-cover transition-transform duration-[1400ms] group-hover:scale-[1.03]"
+                                        className={cn(
+                                            "object-cover",
+                                            !s.tall && "object-top"
+                                        )}
                                     />
                                     <div
                                         aria-hidden="true"

@@ -22,12 +22,12 @@ export function About() {
                     className="relative z-10"
                 >
                     <Image
-                        src="/IMG_1747.jpeg"
+                        src="/IMG_1968.jpeg"
                         alt="Portrait of Darinela Vangelova"
                         width={960}
                         height={1440}
                         sizes="(min-width: 1024px) 50vw, 100vw"
-                        className="max-h-[80vh] w-full object-cover saturate-80"
+                        className="max-h-[80vh] w-full object-cover brightness-80 saturate-80"
                     />
                 </motion.div>
 
