@@ -485,7 +485,7 @@ export function Performances() {
                                         >
                                             <span
                                                 className={cn(
-                                                    "block text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:text-3xl",
+                                                    "block max-w-[calc(100vw-3rem)] truncate text-xl leading-tight font-bold uppercase transition-colors duration-200 sm:text-2xl md:max-w-[calc(100vw-6rem)] md:text-3xl",
                                                     isActive && "text-primary"
                                                 )}
                                             >
