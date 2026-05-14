@@ -53,7 +53,10 @@ export function HoverExpand({
                 return (
                     <React.Fragment key={i}>
                         <motion.li
-                            className="relative w-full overflow-hidden select-none"
+                            role="button"
+                            tabIndex={0}
+                            aria-expanded={isActive}
+                            className="relative w-full overflow-hidden select-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
                             animate={{
                                 height: isActive
                                     ? expandedHeight
@@ -71,11 +74,21 @@ export function HoverExpand({
                             }}
                             onHoverStart={() => setActiveIndex(i)}
                             onHoverEnd={() => setActiveIndex(null)}
+                            onFocus={() => setActiveIndex(i)}
+                            onBlur={() => setActiveIndex(null)}
                             onClick={() =>
                                 setActiveIndex((prev) =>
                                     prev === i ? null : i
                                 )
                             }
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                    e.preventDefault();
+                                    setActiveIndex((prev) =>
+                                        prev === i ? null : i
+                                    );
+                                }
+                            }}
                             aria-label={[
                                 item.label,
                                 item.sublabel,
