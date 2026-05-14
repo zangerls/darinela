@@ -48,32 +48,46 @@ export function Gallery() {
     const [progress, setProgress] = useState<number>(0);
 
     useEffect(() => {
+        let vh = window.innerHeight;
+        let vw = window.innerWidth;
+        let trackWidth = trackRef.current?.scrollWidth ?? 0;
+
+        const measure = () => {
+            vh = window.innerHeight;
+            vw = window.innerWidth;
+            trackWidth = trackRef.current?.scrollWidth ?? 0;
+        };
+
         const onScroll = () => {
             const sec = sectionRef.current;
             const track = trackRef.current;
             if (!sec || !track) return;
 
             const rect = sec.getBoundingClientRect();
-            const vh = window.innerHeight;
             const total = rect.height - vh;
 
             const scrolled = Math.min(Math.max(-rect.top, 0), total);
             const p = total > 0 ? scrolled / total : 0;
             setProgress(p);
 
-            const trackWidth = track.scrollWidth;
-            const viewportWidth = window.innerWidth;
-            const maxTranslate = Math.max(0, trackWidth - viewportWidth + 48);
+            const maxTranslate = Math.max(0, trackWidth - vw + 48);
             track.style.transform = `translate3d(-${p * maxTranslate}px, 0, 0)`;
         };
+
+        const onResize = () => {
+            measure();
+            onScroll();
+        };
+
+        measure();
         onScroll();
 
         window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
+        window.addEventListener("resize", onResize);
 
         return () => {
             window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("resize", onScroll);
+            window.removeEventListener("resize", onResize);
         };
     }, []);
 
@@ -104,7 +118,6 @@ export function Gallery() {
                     <div
                         ref={trackRef}
                         className="absolute inset-y-0 left-6 flex items-center gap-8 will-change-transform md:left-10"
-                        style={{ transition: "transform 0.1s linear" }}
                     >
                         {slides.map((s, i) => (
                             <figure
