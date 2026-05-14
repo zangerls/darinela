@@ -22,79 +22,147 @@ type Performance = {
 function usePerformances(): Performance[] {
     const t = useTranslations("Performances.arias");
     return [
-    {
-        id: 1,
+        {
+            id: 1,
             title: t("faust.title"),
             opera: t("faust.opera"),
             composer: t("faust.composer"),
             date: new Date(2025, 5, 1),
-        image: "/IMG_1747.jpeg",
+            image: "/IMG_1747.jpeg",
             audio: "/marguerite.m4a",
-    },
-    {
-        id: 2,
+        },
+        {
+            id: 2,
             title: t("quando.title"),
             opera: t("quando.opera"),
             composer: t("quando.composer"),
             date: new Date(2025, 11, 1),
-        image: "/IMG_1957.jpeg",
+            image: "/IMG_1957.jpeg",
             audio: "/musetta.m4a",
-    },
-    {
-        id: 3,
+        },
+        {
+            id: 3,
             title: t("magicFlute.title"),
             opera: t("magicFlute.opera"),
             composer: t("magicFlute.composer"),
             date: new Date(2026, 2, 1),
-        image: "/IMG_2053.jpeg",
+            image: "/IMG_2053.jpeg",
             audio: "/pamina.m4a",
-    },
-    {
-        id: 4,
+        },
+        {
+            id: 4,
             title: t("guiditta.title"),
             opera: t("guiditta.opera"),
             composer: t("guiditta.composer"),
             date: new Date(2026, 2, 1),
-        image: "/IMG_2024.jpeg",
+            image: "/IMG_2024.jpeg",
             audio: "/guiditta.m4a",
-    },
+        },
     ];
 }
 
+const analyserCache = new WeakMap<
+    HTMLAudioElement,
+    { analyser: AnalyserNode; data: Uint8Array }
+>();
+
+function ensureAnalyser(audio: HTMLAudioElement) {
+    const cached = analyserCache.get(audio);
+    if (cached) return cached;
+
+    const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+            .webkitAudioContext;
+    const ctx = new AudioCtx();
+
+    const source = ctx.createMediaElementSource(audio);
+    const analyser = ctx.createAnalyser();
+
+    analyser.fftSize = 128;
+    analyser.smoothingTimeConstant = 0.75;
+
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
+
+    const entry = {
+        analyser,
+        data: new Uint8Array(new ArrayBuffer(analyser.frequencyBinCount)),
+        ctx,
+    };
+    analyserCache.set(audio, entry);
+    return entry;
+}
+
+function Waveform({
+    isPlaying,
+    audioRef,
+}: {
+    isPlaying: boolean;
+    audioRef: React.RefObject<HTMLAudioElement | null>;
+}) {
     const bars = 40;
+    const barRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        if (!isPlaying) {
+            barRefs.current.forEach((el) => {
+                if (el) el.style.transform = "scaleY(0.15)";
+            });
+            return;
+        }
+
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const entry = ensureAnalyser(audio);
+        let raf = 0;
+
+        const tick = () => {
+            entry.analyser.getByteFrequencyData(
+                entry.data as Uint8Array<ArrayBuffer>
+            );
+            const binCount = entry.data.length;
+            for (let i = 0; i < bars; i++) {
+                const start = Math.floor((i / bars) * binCount);
+                const end = Math.floor(((i + 1) / bars) * binCount);
+
+                let sum = 0;
+                for (let j = start; j < end; j++) {
+                    sum += entry.data[j];
+                }
+
+                const avg = sum / Math.max(1, end - start) / 255;
+                const scale = 0.15 + avg * 0.85;
+                const el = barRefs.current[i];
+
+                if (el) el.style.transform = `scaleY(${scale})`;
+            }
+            raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+
+        return () => cancelAnimationFrame(raf);
+    }, [isPlaying, audioRef]);
+
     return (
         <div
             aria-hidden="true"
             className="flex h-10 items-center justify-center gap-[3px]"
         >
             {Array.from({ length: bars }).map((_, i) => (
-                <motion.div
+                <div
                     key={i}
+                    ref={(el) => {
+                        barRefs.current[i] = el;
+                    }}
                     className="w-[3px] rounded-full bg-primary/70"
-                    animate={
-                        isPlaying
-                            ? {
-                                  scaleY: [
-                                      0.15,
-                                      Math.random() * 0.85 + 0.15,
-                                      Math.random() * 0.85 + 0.15,
-                                      0.15,
-                                  ],
-                              }
-                            : { scaleY: 0.15 }
-                    }
-                    transition={
-                        isPlaying
-                            ? {
-                                  duration: 0.8 + Math.random() * 0.6,
-                                  repeat: Infinity,
-                                  repeatType: "loop",
-                                  ease: "easeInOut",
-                                  delay: (i / bars) * 0.4,
-                              }
-                            : { duration: 0.3 }
-                    }
-                    style={{ height: 40, originY: 0.5 }}
+                    style={{
+                        height: 40,
+                        transform: "scaleY(0.15)",
+                        transformOrigin: "center",
+                        transition: "transform 60ms linear",
+                    }}
                 />
             ))}
         </div>
@@ -111,6 +179,7 @@ function useAudioPlayer(src: string) {
         if (!src) return;
 
         const audio = new Audio(src);
+        audio.crossOrigin = "anonymous";
         audioRef.current = audio;
 
         audio.addEventListener("loadedmetadata", () =>
@@ -134,6 +203,7 @@ function useAudioPlayer(src: string) {
         if (isPlaying) {
             audio.pause();
         } else {
+            ensureAnalyser(audio);
             audio.play();
         }
         setIsPlaying((p) => !p);
@@ -146,7 +216,7 @@ function useAudioPlayer(src: string) {
         audio.currentTime = fraction * audio.duration;
     }, []);
 
-    return { isPlaying, progress, duration, toggle, seek };
+    return { isPlaying, progress, duration, toggle, seek, audioRef };
 }
 
 function formatTime(secs: number) {
@@ -165,9 +235,8 @@ function ExpandedPlayer({
     const t = useTranslations("Performances.expandedPlayer");
     const format = useFormatter();
     const tRoot = useTranslations("Performances");
-    const { isPlaying, progress, duration, toggle, seek } = useAudioPlayer(
-        perf.audio
-    );
+    const { isPlaying, progress, duration, toggle, seek, audioRef } =
+        useAudioPlayer(perf.audio);
 
     return (
         <>
@@ -241,7 +310,7 @@ function ExpandedPlayer({
                             </span>
                         </div>
 
-                        <Waveform isPlaying={isPlaying} />
+                        <Waveform isPlaying={isPlaying} audioRef={audioRef} />
 
                         <div
                             role="slider"
