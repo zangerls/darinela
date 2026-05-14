@@ -64,12 +64,17 @@ function usePerformances(): Performance[] {
 
 const analyserCache = new WeakMap<
     HTMLAudioElement,
-    { analyser: AnalyserNode; data: Uint8Array }
+    { analyser: AnalyserNode; data: Uint8Array; ctx: AudioContext }
 >();
 
 function ensureAnalyser(audio: HTMLAudioElement) {
     const cached = analyserCache.get(audio);
-    if (cached) return cached;
+    if (cached) {
+        if (cached.ctx.state === "suspended") {
+            cached.ctx.resume();
+        }
+        return cached;
+    }
 
     const AudioCtx =
         window.AudioContext ||
@@ -85,6 +90,10 @@ function ensureAnalyser(audio: HTMLAudioElement) {
 
     source.connect(analyser);
     analyser.connect(ctx.destination);
+
+    if (ctx.state === "suspended") {
+        ctx.resume();
+    }
 
     const entry = {
         analyser,
