@@ -87,7 +87,6 @@ export function Hero() {
                             src={images[0]}
                             alt={t("imageAlt")}
                             fill
-                            priority
                             sizes="(min-width: 1024px) 450px, (min-width: 768px) 380px, 70vw"
                             className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                         />
@@ -112,7 +111,6 @@ export function Hero() {
                             src={images[1]}
                             alt={t("imageAlt")}
                             fill
-                            priority
                             sizes="(min-width: 1024px) 450px, (min-width: 768px) 380px, 70vw"
                             className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                         />
