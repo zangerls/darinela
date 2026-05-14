@@ -14,6 +14,7 @@ type Coords = {
 
 export function Hero() {
     const t = useTranslations("Hero");
+    const tName = useTranslations("_Name");
     const containerRef = useRef<HTMLDivElement>(null);
     const [mousePosition, setMousePosition] = useState<Coords>({ x: 0, y: 0 });
     const { scrollYProgress } = useScroll({
@@ -164,10 +165,10 @@ export function Hero() {
                     transition={{ duration: 1.2, delay: 0.5 }}
                     className="text-5xl leading-[0.8] font-bold uppercase sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
                 >
-                    Darinela
+                    {tName("first")}
                     <br />
                     <span className="ml-12 font-light uppercase italic">
-                        Vangelova
+                        {tName("last")}
                     </span>
                 </motion.h1>
             </div>

@@ -1,4 +1,8 @@
 {
+    "_Name": {
+        "first": "Darinela",
+        "last": "Vangelova"
+    },
     "About": {
         "headline": {
             "line1": "A voice",
@@ -96,6 +100,8 @@
             "city": "Vienna",
             "country": "Austria"
         },
+        "instagram": "Instagram",
+        "youtube": "YouTube",
         "emailAria": "Send an email to {email}",
         "instagramAria": "Visit Darinela on Instagram (opens in a new tab)",
         "youtubeAria": "Visit Darinela on YouTube (opens in a new tab)",
@@ -184,7 +190,8 @@
         "teaserTitle": "Video teaser, muted preview",
         "fullTitle": "Video player",
         "openLabel": "Play full video",
-        "closeLabel": "Close video"
+        "closeLabel": "Close video",
+        "play": "Play"
     },
     "Metadata": {
         "title": "Darinela Vangelova · Soprano",

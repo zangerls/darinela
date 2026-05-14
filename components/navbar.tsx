@@ -62,6 +62,7 @@ function FlagAnimation({
 
 export function Navbar() {
     const t = useTranslations("Navbar");
+    const tName = useTranslations("_Name");
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [flagKey, setFlagKey] = useState<number>(0);
     const [flagPlaying, setFlagPlaying] = useState<boolean>(false);
@@ -107,7 +108,7 @@ export function Navbar() {
                             className="pointer-events-auto text-lg font-bold tracking-widest uppercase transition-opacity hover:opacity-70 md:text-xl"
                             onClick={() => setIsOpen(false)}
                         >
-                            Darinela Vangelova
+                            {`${tName("first")} ${tName("last")}`}
                         </a>
 
                         <button

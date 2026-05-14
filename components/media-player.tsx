@@ -88,7 +88,7 @@ export function MediaPlayer() {
                             }}
                             className="pointer-events-none absolute top-0 left-0 z-20 flex w-fit items-center gap-2 p-2 text-sm text-white mix-blend-exclusion select-none"
                         >
-                            <Play className="size-4 fill-white" /> Play
+                            <Play className="size-4 fill-white" /> {t("play")}
                         </motion.span>
                     </motion.button>
                 </div>

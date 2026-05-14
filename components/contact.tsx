@@ -66,7 +66,7 @@ export function Contact() {
                                     className="group inline-flex items-center gap-2 transition-opacity hover:opacity-60"
                                     data-clickable
                                 >
-                                    <span>Instagram</span>
+                                    <span>{t("instagram")}</span>
                                 </a>
                             </li>
                             <li>
@@ -78,7 +78,7 @@ export function Contact() {
                                     className="group inline-flex items-center gap-2 transition-opacity hover:opacity-60"
                                     data-clickable
                                 >
-                                    <span>Youtube</span>
+                                    <span>{t("youtube")}</span>
                                 </a>
                             </li>
                         </ul>

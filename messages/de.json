@@ -1,4 +1,8 @@
 {
+    "_Name": {
+        "first": "Darinela",
+        "last": "Vangelova"
+    },
     "About": {
         "headline": {
             "line1": "Eine Stimme",
@@ -96,6 +100,8 @@
             "city": "Wien",
             "country": "Österreich"
         },
+        "instagram": "Instagram",
+        "youtube": "YouTube",
         "emailAria": "E-Mail an {email} senden",
         "instagramAria": "Darinela auf Instagram besuchen (öffnet in neuem Tab)",
         "youtubeAria": "Darinela auf YouTube besuchen (öffnet in neuem Tab)",
@@ -184,7 +190,8 @@
         "teaserTitle": "Video-Vorschau, stummgeschalten",
         "fullTitle": "Videoplayer",
         "openLabel": "Vollständiges Video abspielen",
-        "closeLabel": "Video schließen"
+        "closeLabel": "Video schließen",
+        "play": "Play"
     },
     "Metadata": {
         "title": "Darinela Vangelova · Sopranistin",
