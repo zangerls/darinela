@@ -3,11 +3,12 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Pause, Play } from "lucide-react";
+import { Minimize2, Pause, Play } from "lucide-react";
 import { useLenis } from "@/providers/lenis-provider";
 import { Separator } from "./ui/separator";
 import { useFormatter, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 type Performance = {
     id: number;
@@ -295,12 +296,27 @@ function ExpandedPlayer({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between font-mono text-xs text-muted-foreground">
-                            <span>
-                                {format.dateTime(perf.date, {
-                                    year: "numeric",
-                                    month: "short",
-                                })}
-                            </span>
+                            <div className="flex flex-col gap-1 sm:flex-row sm:items-center">
+                                <Button
+                                    variant="ghost"
+                                    size="xs"
+                                    className="text-xs font-normal text-muted-foreground"
+                                    onClick={onClose}
+                                >
+                                    <Minimize2 className="mr-1" />
+                                    Minimize
+                                </Button>
+                                <Separator
+                                    orientation="vertical"
+                                    className="hidden sm:block"
+                                />
+                                <span className="px-3 sm:px-2">
+                                    {format.dateTime(perf.date, {
+                                        year: "numeric",
+                                        month: "short",
+                                    })}
+                                </span>
+                            </div>
                             <span>
                                 {duration
                                     ? formatTime(progress * duration) +
