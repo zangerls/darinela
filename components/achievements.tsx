@@ -91,32 +91,6 @@ export function Achievements() {
                             description: format.list(x.result),
                         }))}
                     />
-
-                    <div aria-hidden="true" className="hidden space-y-12">
-                        {achievements.map((award, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: index * 0.1,
-                                }}
-                                viewport={{ once: true }}
-                                className="group relative border-l border-primary/20 pl-8 transition-colors duration-500 hover:border-primary"
-                            >
-                                <span className="absolute top-0 -left-[5px] h-[9px] w-[9px] scale-0 rounded-full bg-primary transition-transform duration-300 group-hover:scale-100" />
-
-                                <div className="mb-2 font-mono text-xs uppercase opacity-50">
-                                    {award.date} - {award.location}
-                                </div>
-                                <h3 className="group-hover:text-stroke mb-1 text-2xl font-bold uppercase transition-all duration-300 md:text-3xl">
-                                    {award.competition}
-                                </h3>
-                                <Badge>{award.result}</Badge>
-                            </motion.div>
-                        ))}
-                    </div>
                 </div>
             </div>
         </section>
