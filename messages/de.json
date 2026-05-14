@@ -6,7 +6,7 @@
         },
         "paragraphs": {
             "first": "Darinela Vangelova ist eine bulgarische Sopranistin mit Wohnsitz in Wien. 2003 in Burgas geboren, begann sie ihre Ausbildung an der Nationalen Schule für Musik und darstellende Künste „Prof. Pancho Vladigerov\", wo sie Klavier bei Zlatina Panteleeva und Operngesang bei Bilyana Danailova studierte und 2022 ihren Abschluss machte. Derzeit absolviert sie das letzte Semester ihres Bachelorstudiums an der Universität für Musik und darstellende Kunst Wien (mdw).",
-            "second": "Ihre künstlerische Entwicklung wurde durch Meisterklassen bei Krassimira Stoyanova, Stefka Evstatieva, Valentin Peychinov, Voislav Spasich und weiteren renommierten Lehrenden geprägt. Im Januar 2025 sang sie die Rolle der Ilia in Mozarts <i>Idomeneo</i>, und erhielt im selben Jahr ein Stipendium der Raina-Kabaivanska-Stiftung für das Studienjahr 2025/26 am Istituto Vecchi-Tonelli. Neben ihrem Studium tritt sie als Solistin bei Yehudi Menuhins Live Music Now in Wien auf und gibt einstündige Konzerte in Pflegeheimen, Krankenhäusern und für Menschen, die nur selten Gelegenheit haben, Live-Musik zu erleben."
+            "second": "Ihre künstlerische Entwicklung wurde durch Meisterklassen bei Krassimira Stoyanova, Stefka Evstatieva, Valentin Peychinov, Voislav Spasich und weiteren renommierten Lehrenden geprägt. Im September 2025 erhielt Darinela ein Stipendium der Raina-Kabaivanska-Stiftung für das Studienjahr 2025/26 am Istituto Vecchi-Tonelli. Neben ihrem Studium tritt sie als Solistin bei Yehudi Menuhins Live Music Now in Wien auf und gibt einstündige Konzerte in Pflegeheimen, Krankenhäusern und für Menschen, die nur selten Gelegenheit haben, Live-Musik zu erleben."
         },
         "stats": {
             "voice": {
@@ -42,21 +42,21 @@
             "cities": "Städte",
             "years": "Jahre"
         },
-        "prize": {
+        "prizes": {
             "first": "1. Preis",
             "second": "2. Preis",
             "third": "3. Preis",
             "laureate": "Preisträgerin",
             "grandPrix": "Grand Prix"
         },
-        "country": {
+        "countries": {
             "austria": "Österreich",
             "bulgaria": "Bulgarien",
             "italy": "Italien",
             "serbia": "Serbien",
             "slovenia": "Slowenien"
         },
-        "city": {
+        "cities": {
             "vienna": "Wien",
             "belgrade": "Belgrad",
             "sofia": "Sofia",
@@ -66,8 +66,8 @@
             "ruse": "Russe",
             "varna": "Warna"
         },
-        "competition": {
-            "mozartVienna": "International Mozart Competition Vienna",
+        "competitions": {
+            "imcv": "International Mozart Competition Vienna",
             "angelVoiceOnline": "Angel Voice Winners League (Online-Ausgabe)",
             "balkanRomansiada": "Internationaler Wettbewerb für russische klassische und zeitgenössische Romanze \"Balkan Romansiada\"",
             "angelVoice": "Internationaler Wettbewerb für klassischen Gesang \"Angel Voice\"",
@@ -120,7 +120,7 @@
                 "instiution": "Nationale Schule für Musik und darstellende Kunst \"Prof. Pancho Vladigerov\"",
                 "location": "Burgas, Bulgarien",
                 "year": "2014 - 2022",
-                "focus": "Klavier, klassischer Gesang"
+                "focus": "Klavier, Klassischer Gesang"
             }
         }
     },
