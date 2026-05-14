@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Pause, Play } from "lucide-react";
 import { useLenis } from "@/providers/lenis-provider";
 import { Separator } from "./ui/separator";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 type Performance = {
@@ -14,66 +14,53 @@ type Performance = {
     title: string;
     opera: string;
     composer: string;
-    venue: string;
-    year: number;
+    date: Date;
     image: string;
     audio: string;
 };
 
-const PERFORMANCES: Performance[] = [
+function usePerformances(): Performance[] {
+    const t = useTranslations("Performances.arias");
+    return [
     {
         id: 1,
-        title: "Title 1",
-        opera: "Opera 1",
-        composer: "Composer 1",
-        venue: "Venue 1",
-        year: 2023,
+            title: t("faust.title"),
+            opera: t("faust.opera"),
+            composer: t("faust.composer"),
+            date: new Date(2025, 5, 1),
         image: "/IMG_1747.jpeg",
-        audio: "/audio.wav",
+            audio: "/marguerite.m4a",
     },
     {
         id: 2,
-        title: "Title 2",
-        opera: "Opera 2",
-        composer: "Composer 2",
-        venue: "Venue 2",
-        year: 2023,
+            title: t("quando.title"),
+            opera: t("quando.opera"),
+            composer: t("quando.composer"),
+            date: new Date(2025, 11, 1),
         image: "/IMG_1957.jpeg",
-        audio: "/audio.wav",
+            audio: "/musetta.m4a",
     },
     {
         id: 3,
-        title: "Title 3",
-        opera: "Opera 3",
-        composer: "Composer 3",
-        venue: "Venue 3",
-        year: 2023,
+            title: t("magicFlute.title"),
+            opera: t("magicFlute.opera"),
+            composer: t("magicFlute.composer"),
+            date: new Date(2026, 2, 1),
         image: "/IMG_2053.jpeg",
-        audio: "/audio.wav",
+            audio: "/pamina.m4a",
     },
     {
         id: 4,
-        title: "Title 4",
-        opera: "Opera 4",
-        composer: "Composer 4",
-        venue: "Venue 4",
-        year: 2023,
+            title: t("guiditta.title"),
+            opera: t("guiditta.opera"),
+            composer: t("guiditta.composer"),
+            date: new Date(2026, 2, 1),
         image: "/IMG_2024.jpeg",
-        audio: "/audio.wav",
+            audio: "/guiditta.m4a",
     },
-    {
-        id: 5,
-        title: "Title 5",
-        opera: "Opera 5",
-        composer: "Composer 5",
-        venue: "Venue 5",
-        year: 2023,
-        image: "/IMG_1910.jpeg",
-        audio: "/audio.wav",
-    },
-];
+    ];
+}
 
-function Waveform({ isPlaying }: { isPlaying: boolean }) {
     const bars = 40;
     return (
         <div
@@ -176,6 +163,7 @@ function ExpandedPlayer({
     onClose: () => void;
 }) {
     const t = useTranslations("Performances.expandedPlayer");
+    const format = useFormatter();
     const tRoot = useTranslations("Performances");
     const { isPlaying, progress, duration, toggle, seek } = useAudioPlayer(
         perf.audio
@@ -239,7 +227,10 @@ function ExpandedPlayer({
                     >
                         <div className="flex items-center justify-between font-mono text-xs text-muted-foreground">
                             <span>
-                                {perf.venue}, {perf.year}
+                                {format.dateTime(perf.date, {
+                                    year: "numeric",
+                                    month: "short",
+                                })}
                             </span>
                             <span>
                                 {duration
@@ -316,6 +307,7 @@ function ScrollProgressBar({
     sectionRef: React.RefObject<HTMLDivElement | null>;
 }) {
     const t = useTranslations("Performances.scrollProgressBar");
+    const performances = usePerformances();
     const fillRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
@@ -366,7 +358,7 @@ function ScrollProgressBar({
             </div>
             <div className="mt-2 flex items-center justify-between font-mono text-[0.65rem] tracking-widest text-muted-foreground uppercase">
                 <span>{t("indication")}</span>
-                <span>{t("nRecordings", { count: PERFORMANCES.length })}</span>
+                <span>{t("nRecordings", { count: performances.length })}</span>
             </div>
         </div>
     );
@@ -374,8 +366,9 @@ function ScrollProgressBar({
 
 export function Performances() {
     const t = useTranslations("Performances");
+    const performances = usePerformances();
     const sectionRef = useRef<HTMLDivElement>(null);
-    const [activeId, setActiveId] = useState<number>(PERFORMANCES[0].id);
+    const [activeId, setActiveId] = useState<number>(performances[0].id);
     const [expandedId, setExpandedId] = useState<number | null>(null);
 
     useEffect(() => {
@@ -387,8 +380,8 @@ export function Performances() {
         return () => window.removeEventListener("keydown", onKey);
     }, [expandedId]);
 
-    const activePerf = PERFORMANCES.find((p) => p.id === activeId)!;
-    const expandedPerf = PERFORMANCES.find((p) => p.id === expandedId) ?? null;
+    const activePerf = performances.find((p) => p.id === activeId)!;
+    const expandedPerf = performances.find((p) => p.id === expandedId) ?? null;
 
     return (
         <section
@@ -445,7 +438,7 @@ export function Performances() {
                                     {t("heading")}
                                 </span>
                             </h2>
-                            {PERFORMANCES.map((perf) => {
+                            {performances.map((perf) => {
                                 const isActive = perf.id === activeId;
                                 return (
                                     <motion.button

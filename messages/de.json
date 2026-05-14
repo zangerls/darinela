@@ -172,6 +172,28 @@
         "scrollProgressBar": {
             "indication": "Fortschritt",
             "nRecordings": "{count, plural, =0 {Keine Aufzeichnungen} =1 {Eine Aufzeichnung} other {# Aufzeichnungen}}"
+        },
+        "arias": {
+            "faust": {
+                "title": "Ah! je ris de me voir si belle",
+                "opera": "Faust",
+                "composer": "Charles Gonoud"
+            },
+            "quando": {
+                "title": "Quando men vo",
+                "opera": "La Bohème",
+                "composer": "Giacomo Puccini"
+            },
+            "magicFlute": {
+                "title": "Ach, ich fühl's",
+                "opera": "Die Zauberflöte",
+                "composer": "W.A. Mozart"
+            },
+            "guiditta": {
+                "title": "Meine Lippen, sie küssen so heiß",
+                "opera": "Guiditta",
+                "composer": "Franz Lehár"
+            }
         }
     },
     "ThemeToggle": {
