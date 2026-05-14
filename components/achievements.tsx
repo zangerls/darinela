@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import { HoverExpand } from "./hover-expand";
 import { useFormatter, useTranslations } from "next-intl";
+import { Button } from "./ui/button";
 
 type Achievement = {
     date: number;
@@ -71,14 +72,19 @@ export function Achievements() {
                             {t("description")}
                         </p>
 
-                        <Link
-                            data-clickable
-                            href="/achievements"
-                            data-testid="link-view-all-achievements"
-                            className="inline-block border border-primary/30 px-6 py-3 font-mono text-sm tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                        <Button
+                            asChild
+                            className="tracking-wide uppercase"
+                            size="lg"
                         >
-                            {t("allAwardsBtn")}
-                        </Link>
+                            <Link
+                                data-clickable
+                                href="/achievements"
+                                data-testid="link-view-all-achievements"
+                            >
+                                {t("allAwardsBtn")}
+                            </Link>
+                        </Button>
                     </div>
 
                     <HoverExpand
