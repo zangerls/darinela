@@ -84,31 +84,7 @@ export function Contact() {
                         </ul>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        <h3 className="mb-3 border-b border-primary pb-1 font-mono text-xs tracking-widest uppercase">
-                            {t("share")}
-                        </h3>
-                        <button
-                            type="button"
-                            onClick={() => {
-                                if (typeof window !== "undefined") {
-                                    void navigator.clipboard?.writeText(
-                                        window.location.href
-                                    );
-                                }
-                            }}
-                            aria-label={t("sharePortfolio")}
-                            className="group inline-flex items-center gap-2 font-mono text-sm uppercase transition-opacity hover:opacity-60"
-                            data-clickable
-                        >
-                            <span>Portfolio</span>
-                        </button>
-                    </motion.div>
+                    <div aria-hidden />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
