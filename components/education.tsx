@@ -86,7 +86,7 @@ export function Education() {
                                     {edu.institution}
                                 </h3>
 
-                                <p className="mb-4 font-mono text-sm text-xs tracking-widest uppercase opacity-60">
+                                <p className="mb-4 font-mono text-xs tracking-widest uppercase opacity-60">
                                     {edu.location}
                                 </p>
 
