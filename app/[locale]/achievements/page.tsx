@@ -1,10 +1,10 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { useEffect, useRef, useState } from "react";
-import { useFormatter, useTranslations } from "next-intl";
+import { getFormatter, getTranslations } from "next-intl/server";
+import { hasLocale, type Locale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { YearNav } from "./year-nav";
 
 type Achievement = {
     competition: string;
@@ -16,10 +16,30 @@ type Achievement = {
 
 const sectionId = (year: number) => `year-${year}`;
 
-export default function AchievementsPage() {
-    const t = useTranslations("AchievementsPage");
-    const format = useFormatter();
-    const sectionsRef = useRef<Map<number, HTMLElement>>(new Map());
+function formatLocation(
+    city: string | undefined,
+    country: string | undefined
+): string | null {
+    if (!city && !country) return null;
+    if (city && country) return `${city} • ${country}`;
+    if (!city) return country!;
+    return city;
+}
+
+export default async function AchievementsPage({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale: rawLocale } = await params;
+    const locale = (
+        hasLocale(routing.locales, rawLocale)
+            ? rawLocale
+            : routing.defaultLocale
+    ) as Locale;
+
+    const t = await getTranslations({ locale, namespace: "AchievementsPage" });
+    const format = await getFormatter({ locale });
 
     const achievements: Achievement[] = [
         {
@@ -155,43 +175,6 @@ export default function AchievementsPage() {
         .map(Number)
         .sort((a, b) => b - a);
 
-    const [activeYear, setActiveYear] = useState<number>(years[0]);
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort(
-                        (a, b) =>
-                            a.target.getBoundingClientRect().top -
-                            b.target.getBoundingClientRect().top
-                    );
-                if (visible[0]) {
-                    const year = Number(
-                        (visible[0].target as HTMLElement).dataset.year
-                    );
-                    if (!Number.isNaN(year)) setActiveYear(year);
-                }
-            },
-            { rootMargin: "-20% 0px -65% 0px", threshold: 0 }
-        );
-
-        sectionsRef.current.forEach((el) => observer.observe(el));
-        return () => observer.disconnect();
-    }, []);
-
-    const handleNavClick = (
-        e: React.MouseEvent<HTMLAnchorElement>,
-        year: number
-    ) => {
-        e.preventDefault();
-        const el = sectionsRef.current.get(year);
-        if (el) {
-            const top = el.getBoundingClientRect().top + window.scrollY - 96;
-            window.scrollTo({ top, behavior: "smooth" });
-        }
-    };
-
     const titleId = "achievements-page-title";
 
     const tally = [
@@ -199,16 +182,6 @@ export default function AchievementsPage() {
         { key: "cities", label: t("tally.cities"), value: uniqueCityCount },
         { key: "years", label: t("tally.years"), value: years.length },
     ];
-
-    function formatLocation(
-        city: string | undefined,
-        country: string | undefined
-    ): string | null {
-        if (!city && !country) return null;
-        if (city && country) return `${city} • ${country}`;
-        if (!city) return country!;
-        return city;
-    }
 
     return (
         <div className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white [@supports(min-height:100dvh)]:min-h-dvh">
@@ -255,17 +228,6 @@ export default function AchievementsPage() {
                                 {years.map((year) => (
                                     <li key={year}>
                                         <section
-                                            ref={(el) => {
-                                                if (el)
-                                                    sectionsRef.current.set(
-                                                        year,
-                                                        el
-                                                    );
-                                                else
-                                                    sectionsRef.current.delete(
-                                                        year
-                                                    );
-                                            }}
                                             data-year={year}
                                             id={sectionId(year)}
                                             aria-labelledby={`${sectionId(
@@ -328,50 +290,11 @@ export default function AchievementsPage() {
                             </ol>
                         </div>
 
-                        <aside
-                            aria-label={t("yearNavLabel")}
-                            className="hidden lg:block"
-                        >
-                            <nav className="sticky top-24">
-                                <p
-                                    id="on-this-page-label"
-                                    className="mb-4 font-mono text-xs tracking-widest uppercase opacity-50"
-                                >
-                                    {t("onThisPage")}
-                                </p>
-                                <ul
-                                    aria-labelledby="on-this-page-label"
-                                    className="list-none border-l border-primary/15 p-0"
-                                >
-                                    {years.map((year) => {
-                                        const isActive = year === activeYear;
-                                        return (
-                                            <li key={year}>
-                                                <a
-                                                    data-clickable
-                                                    href={`#${sectionId(year)}`}
-                                                    onClick={(e) =>
-                                                        handleNavClick(e, year)
-                                                    }
-                                                    aria-current={
-                                                        isActive
-                                                            ? "location"
-                                                            : undefined
-                                                    }
-                                                    className={`relative -ml-px block border-l py-2 pl-4 font-mono text-xs tracking-widest uppercase transition-colors duration-200 ${
-                                                        isActive
-                                                            ? "border-primary text-primary"
-                                                            : "border-transparent text-muted-foreground/60 hover:text-foreground"
-                                                    }`}
-                                                >
-                                                    {year}
-                                                </a>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </nav>
-                        </aside>
+                        <YearNav
+                            years={years}
+                            onThisPageLabel={t("onThisPage")}
+                            yearNavLabel={t("yearNavLabel")}
+                        />
                     </div>
 
                     <section
