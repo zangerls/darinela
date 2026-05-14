@@ -6,6 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { LanguagePicker } from "./language-picker";
 import { Separator } from "./ui/separator";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type Link = {
     label: string;
@@ -102,14 +103,14 @@ export function Navbar() {
             >
                 <div className="flex h-full flex-col justify-between">
                     <div className="flex items-center justify-between">
-                        <a
+                        <Link
                             href="/"
                             aria-label={t("homeAria")}
                             className="pointer-events-auto text-lg font-bold tracking-widest uppercase transition-opacity hover:opacity-70 md:text-xl"
                             onClick={() => setIsOpen(false)}
                         >
                             {`${tName("first")} ${tName("last")}`}
-                        </a>
+                        </Link>
 
                         <button
                             type="button"
