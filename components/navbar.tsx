@@ -225,7 +225,7 @@ export function Navbar() {
                                         data-clickable
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="group relative block text-4xl font-black tracking-tighter transition-all duration-300 sm:text-5xl md:text-6xl lg:text-7xl"
+                                        className="group relative block text-center text-4xl font-black tracking-tighter transition-all duration-300 sm:text-5xl md:text-6xl lg:text-7xl"
                                     >
                                         <span
                                             data-clickable
