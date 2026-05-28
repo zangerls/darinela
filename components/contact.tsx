@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-const EMAIL = "vangelova@darinela.com";
+const EMAIL = "darinela.vangelovaa@gmail.com";
 const INSTAGRAM_URL = "https://www.instagram.com/darinela_vangelova";
 const YOUTUBE_URL = "https://youtube.com/@darinelavangelova268";
 
