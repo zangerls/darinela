@@ -74,7 +74,7 @@ export function Navbar() {
         { label: t("links.education"), href: "#education" },
         { label: t("links.acclaim"), href: "#acclaim" },
         { label: t("links.performances"), href: "#performances" },
-        { label: t("links.upcoming"), href: "#upcoming" },
+        // { label: t("links.upcoming"), href: "#upcoming" },
         { label: t("links.gallery"), href: "#gallery" },
         { label: t("links.contact"), href: "#contact" },
     ];
