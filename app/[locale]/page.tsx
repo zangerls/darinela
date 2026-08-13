@@ -8,7 +8,6 @@ import { Hero } from "@/components/hero";
 import { Navbar } from "@/components/navbar";
 import { Achievements } from "@/components/achievements";
 import { Performances } from "@/components/performances";
-import { UpcomingPerformances } from "@/components/upcoming-performances";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -35,7 +34,7 @@ export default async function Page({
                 <Education />
                 <Achievements />
                 <Performances />
-                <UpcomingPerformances />
+                {/* <UpcomingPerformances /> */}
                 <Gallery />
                 <Contact />
             </main>
